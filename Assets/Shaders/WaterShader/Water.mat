@@ -130,7 +130,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WaveAmplitude: 0.15
+    - _WaveAmplitude: 1.5
     - _WaveFrequency: 30
     - _WaveNoiseFrequency: 0.4
     - _WaveSpeed: 0.2
@@ -142,7 +142,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DeepColor: {r: 0.6392157, g: 0.97647053, b: 1, a: 0.50980395}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FoamColor: {r: 0.8802066, g: 0.99201375, b: 1, a: 1}
+    - _FoamColor: {r: 0.105882354, g: 0.32156864, b: 0.27450982, a: 1}
     - _RefractionScale: {r: 2, g: 2, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SurfaceColor: {r: 0.105882294, g: 0.32156855, b: 0.27450976, a: 1}
