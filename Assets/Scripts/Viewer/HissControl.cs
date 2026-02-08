@@ -16,7 +16,13 @@ public class HissControl : MonoBehaviour
 
     private void Start()
     {
-        _center = _rigidbody.transform;
+        if (_rigidbody == null)
+        {
+            Debug.Log("Rigidbody not assigned. ");
+            enabled = false;
+        }
+        else
+            _center = _rigidbody.transform;
     }
 
     private void Update()
