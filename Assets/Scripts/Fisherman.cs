@@ -22,6 +22,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private Transform _fisherPool;
     [SerializeField] private Transform _fishingCanePool;
     [SerializeField][Min(1f)] private float _pullingForce;
+    [SerializeField][Min(0f)] private float _spawnRadius = 5f;
 
     [SerializeField][Min(0.1f)] private float _waitTime = 2.3f;
     [SerializeField][Range(0f, 1f)] private float _possibility = 0.2f;
@@ -45,14 +46,16 @@ public class Fisherman : MonoBehaviour
 
     private void InitNewFisher()
     {
-        Instantiate(FishermanPrefabs[Random.Range(0, FishermanPrefabs.Length)], _fisherPool);
-        Instantiate(FishingCanePrefab, _fishingCanePool);
+        GameObject go = Instantiate(FishermanPrefabs[Random.Range(0, FishermanPrefabs.Length)], _fisherPool);
+        go.transform.position = Vector3.zero;
+        go = Instantiate(FishingCanePrefab, _fishingCanePool);
+        go.transform.position = Vector3.zero;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         Hook hook = other.GetComponent<Hook>();
-        if (hook.Active && hook != null)
+        if (hook != null && hook.Active)
         {
             hook.HookHook();
         }
@@ -61,7 +64,7 @@ public class Fisherman : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         Hook hook = other.GetComponent<Hook>();
-        if (hook.Active && hook != null)
+        if (hook != null && hook.Active)
         {
             ReverseFished(hook.Velocity);
         }
@@ -71,23 +74,40 @@ public class Fisherman : MonoBehaviour
     public void ReverseFish() => ReverseFished(Random.insideUnitSphere);
     public void ReverseFished(Vector3 direction)
     {
+        Vector3 newFishingPos = new Vector3(direction.x, 0f, direction.z).normalized;
+
+        Transform fisher = _fisherPool.GetChild(0);
+        fisher.transform.localPosition = newFishingPos * _spawnRadius;
+        fisher.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
+        Rigidbody rb = fisher.GetComponentInChildren<Rigidbody>();
+        fisher.SetParent(null);
+
+        if (rb != null)
+        {
+            rb.AddForce(direction * _pullingForce, ForceMode.Impulse);
+            rb.AddTorque(direction * _pullingForce*4f, ForceMode.Impulse);
+        }
+
+        Transform fishingCane = _fishingCanePool.GetChild(0);
+        fishingCane.transform.localPosition = newFishingPos * _spawnRadius;
+        fishingCane.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
+        Rigidbody rbC = fishingCane.GetComponentInChildren<Rigidbody>();
+        fishingCane.SetParent(null);
+
+        if (rbC != null)
+        {
+            rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
+            rbC.AddTorque(direction * _pullingForce*2f, ForceMode.Impulse);
+        }
+
+        
         Vector3 newPos = _mainObject.transform.position + new Vector3(0f, _addedHeight, 0f);
 
         _mainObject.transform.DOMove(newPos, _time);
         _hookTransform.isKinematic = true;
         _hookTransform.transform.DOMove(newPos, _time);
 
-        Transform fisher = _fisherPool.GetChild(0);
-        Rigidbody rb = fisher.GetOrAddComponent<Rigidbody>();
-
-        if (rb != null)
-            rb.AddForce(direction * _pullingForce, ForceMode.Impulse);
-
-        Transform fishingCane = _fishingCanePool.GetChild(0);
-        Rigidbody rbC = fishingCane.GetOrAddComponent<Rigidbody>();
-
-        if (rbC != null)
-            rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
+    
 
         InitNewFisher(); // add new to pool to fetch later
         _collider.enabled = false;
