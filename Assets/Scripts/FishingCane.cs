@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class FishingCane : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class FishingCane : MonoBehaviour
 
             if (_hook.Hooked)
                 break;
+                
+            yield return null;
         }
 
         while (true)
