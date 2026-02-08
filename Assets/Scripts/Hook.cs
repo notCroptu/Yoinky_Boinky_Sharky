@@ -6,9 +6,12 @@ public class Hook : MonoBehaviour
     public Vector3 Velocity => _rigidbody.linearVelocity;
     public bool Active => _active;
     private bool _active;
+    private Vector3 _originalPos;
+    public bool Hooked => _rigidbody.isKinematic;
 
     private void Awake()
     {
+        _originalPos = transform.localPosition;
         _rigidbody.isKinematic = false;
     }
 
@@ -21,6 +24,8 @@ public class Hook : MonoBehaviour
     private void OnDisable()
     {
         _active = false;
+        _rigidbody.isKinematic = true;
+        transform.localPosition = _originalPos;
     }
 
     public void HookHook()
