@@ -3,6 +3,7 @@ using DG.Tweening;
 using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class Fisherman : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(0f)] private float _movingDuration = 1f;
 
     [SerializeField] private Rigidbody _hookTransform;
+    [SerializeField] private Transform _hookPoint;
+    [SerializeField] private Transform _startPoint;
+    [SerializeField] private Transform _fishingPoint;
+    [SerializeField] private LineRenderer _fishingLine;
+    [SerializeField] private SplineContainer _spline;
+    [SerializeField][Min(3)]  private int _lineResolution = 30;
     
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField] private GameObject FishingCanePrefab;
@@ -27,14 +34,27 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(0.1f)] private float _waitTime = 2.3f;
     [SerializeField][Range(0f, 1f)] private float _possibility = 0.2f;
 
+    private void Awake()
+    {
+        Spline spline = _spline.Spline;
+        spline.Clear();
+
+        spline.Add(new BezierKnot(_startPoint.position));
+        spline.Add(new BezierKnot(_fishingPoint.position));
+        spline.Add(new BezierKnot(_hookTransform.position));
+
+        spline.SetTangentMode(0, TangentMode.AutoSmooth);
+        spline.SetTangentMode(1, TangentMode.AutoSmooth);
+        spline.SetTangentMode(2, TangentMode.AutoSmooth);
+    }
 
     private void Start()
     {
         _hookTransform.isKinematic = true;
-        _hookTransform.transform.position = _origin.transform.position;
 
         _mainObject.transform.position = _origin.transform.position;
         _fisherPool.gameObject.SetActive(false);
+        _fishingCanePool.gameObject.SetActive(false);
 
         for (int i = 0; i < _initializeFisherAtATime; i++)
         {
@@ -127,6 +147,30 @@ public class Fisherman : MonoBehaviour
         ChooseNewLocation();
     }
 
+    private void LateUpdate()
+    {
+        UpdateSpline();
+    }
+
+    private void UpdateSpline()
+    {
+        Spline spline = _spline.Spline;
+
+        _fishingPoint.position = (_startPoint.position + _hookPoint.position) / 2f;
+
+        spline.SetKnot(0, new BezierKnot(_startPoint.position));
+        spline.SetKnot(1, new BezierKnot(_fishingPoint.position));
+        spline.SetKnot(2, new BezierKnot(_hookPoint.position));
+
+        _fishingLine.positionCount = _lineResolution;
+
+        for (int i = 0; i < _lineResolution; i++)
+        {
+            float t = i / (_lineResolution - 1f);
+            _fishingLine.SetPosition(i, _spline.EvaluatePosition(t));
+        }
+    }
+
     private void ChooseNewLocation()
     {
         Vector3 newPos = _origin.position
@@ -145,13 +189,16 @@ public class Fisherman : MonoBehaviour
         _mainObject.transform.DOMove(newPos, _time);
         _collider.enabled = true;
 
+        _startPoint.localPosition = new Vector3(0f, _startPoint.localPosition.y, 0f) + new Vector3(Random.value * 2 - 1f, 0f, Random.value * 2 - 1f).normalized * _spawnRadius;
+        _hookTransform.transform.localPosition = _startPoint.localPosition;
+
         _hookTransform.isKinematic = false;
-        Vector3 newVelocity = _origin.position
-            + new Vector3(
+        Vector3 newVelocity = new Vector3(
                 (Random.value * 2 - 1f) * _radius,
-                -_radius,
+                -_radius * 4f,
                 (Random.value * 2 - 1f) * _radius
             );
+        
         _hookTransform.AddForce(newVelocity, ForceMode.Impulse);
     }
 }

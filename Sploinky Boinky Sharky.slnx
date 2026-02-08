@@ -2,13 +2,14 @@
   <Project Path="NaughtyAttributes.Test.csproj" />
   <Project Path="NaughtyAttributes.Core.csproj" />
   <Project Path="NaughtyAttributes.Editor.csproj" />
-  <Project Path="Unity.XR.Hands.Samples.VisualizerSample.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Unity.XR.Hands.Samples.VisualizerSample.csproj" />
   <Project Path="ControllerSample.csproj" />
   <Project Path="Unity.XR.Hands.Samples.HandCapture.csproj" />
   <Project Path="Assembly-CSharp-firstpass.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.SpatialKeyboard.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.Hands.csproj" />
+  <Project Path="Unity.XR.Management.Samples.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.csproj" />
   <Project Path="Assembly-CSharp-Editor.csproj" />
   <Project Path="Unity.XR.Hands.Samples.HandCapture.Editor.csproj" />
@@ -16,6 +17,7 @@
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.SpatialKeyboard.Editor.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.StarterAssets.Editor.csproj" />
+  <Project Path="Unity.XR.Management.Samples.Editor.csproj" />
   <Project Path="Unity.XR.Hands.Samples.Gestures.csproj" />
   <Project Path="Unity.XR.Hands.Samples.Gestures.Editor.csproj" />
   <Project Path="Unity.XR.Interaction.Toolkit.Samples.ARStarterAssets.Editor.csproj" />

@@ -4,7 +4,7 @@ using UnityEngine;
 public class CalculateDamping : MonoBehaviour
 {
     [SerializeField] private Rigidbody[] _rigidbody;
-    [SerializeField] private MeshFilter _mesh;
+    [SerializeField] private Collider _col;
 
     private Vector2 _linearDamp = new(1f, 5f);
     private Vector2 _angularDamp = new(0.5f, 2f);
@@ -21,16 +21,15 @@ public class CalculateDamping : MonoBehaviour
 
         float scale = 1f;
 
-        if (_mesh != null)
+        if (_col != null)
         {
-            Mesh mesh = _mesh.mesh;
-            scale = Mathf.InverseLerp(_minMaxVolume.x, _minMaxVolume.y, mesh.bounds.size.magnitude);
+            scale = Mathf.InverseLerp(_minMaxVolume.x, _minMaxVolume.y, _col.bounds.size.magnitude);
         }
 
         // Apply damping based on volume
         foreach (Rigidbody rb in _rigidbody)
         {
-            if (_mesh == null)
+            if (_col == null)
             {
                 Collider col = rb.GetComponent<Collider>();
                 scale = Mathf.InverseLerp(_minMaxVolume.x, _minMaxVolume.y, col.bounds.size.magnitude);
