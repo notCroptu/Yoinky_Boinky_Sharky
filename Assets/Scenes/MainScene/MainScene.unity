@@ -421,6 +421,7 @@ PrefabInstance:
     - {fileID: 8208229975827745842, guid: 169c71e48f871004dab596fc61f1c56a, type: 3}
     - {fileID: -1561340675325879793, guid: 169c71e48f871004dab596fc61f1c56a, type: 3}
     - {fileID: 5845375464428368027, guid: 169c71e48f871004dab596fc61f1c56a, type: 3}
+    - {fileID: 8999431524975491499, guid: 169c71e48f871004dab596fc61f1c56a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 169c71e48f871004dab596fc61f1c56a, type: 3}
@@ -1575,6 +1576,7 @@ MonoBehaviour:
   _initializeFisherAtATime: 3
   _fisherPool: {fileID: 226766406}
   _fishingCanePool: {fileID: 1306158985}
+  _fishingCane: {fileID: 0}
   _pullingForce: 10
   _spawnRadius: 7
   _waitTime: 2.3
