@@ -29,6 +29,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(1)] private int _initializeFisherAtATime = 4;
     [SerializeField] private Transform _fisherPool;
     [SerializeField] private Transform _fishingCanePool;
+    [SerializeField] private GameObject _fishingCane;
     [SerializeField][Min(1f)] private float _pullingForce;
     [SerializeField][Min(0f)] private float _spawnRadius = 5f;
 
@@ -57,7 +58,6 @@ public class Fisherman : MonoBehaviour
 
         _mainObject.transform.position = _origin.transform.position;
         _fisherPool.gameObject.SetActive(false);
-        _fishingCanePool.gameObject.SetActive(false);
 
         for (int i = 0; i < _initializeFisherAtATime; i++)
         {
@@ -70,8 +70,6 @@ public class Fisherman : MonoBehaviour
     private void InitNewFisher()
     {
         GameObject go = Instantiate(FishermanPrefabs[Random.Range(0, FishermanPrefabs.Length)], _fisherPool);
-        go.transform.position = Vector3.zero;
-        go = Instantiate(FishingCanePrefab, _fishingCanePool);
         go.transform.position = Vector3.zero;
     }
 
@@ -111,18 +109,24 @@ public class Fisherman : MonoBehaviour
             rb.AddTorque(direction * _pullingForce*4f, ForceMode.Impulse);
         }
 
-        Transform fishingCane = _fishingCanePool.GetChild(0);
-        fishingCane.transform.localPosition = newFishingPos * _spawnRadius;
-        fishingCane.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
-        Rigidbody rbC = fishingCane.GetComponentInChildren<Rigidbody>();
-        fishingCane.SetParent(null);
-
-        if (rbC != null)
+        if (_fishingCane == null)
         {
-            rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
-            rbC.AddTorque(direction * _pullingForce*2f, ForceMode.Impulse);
+            _fishingCane = Instantiate(FishingCanePrefab, _fishingCanePool);
+            _fishingCane.transform.position = Vector3.zero;
         }
+        if (_fishingCane.activeInHierarchy == false)
+        {
+            _fishingCane.transform.localPosition = newFishingPos * _spawnRadius;
+            _fishingCane.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
+            Rigidbody rbC = _fishingCane.GetComponentInChildren<Rigidbody>();
+            _fishingCane.transform.SetParent(null);
 
+            if (rbC != null)
+            {
+                rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
+                rbC.AddTorque(direction * _pullingForce*2f, ForceMode.Impulse);
+            }
+        }
         
         Vector3 newPos = _mainObject.transform.position + new Vector3(0f, _addedHeight, 0f);
 
