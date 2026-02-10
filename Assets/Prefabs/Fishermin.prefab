@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6615297657262045118
 Transform:
   m_ObjectHideFlags: 0
@@ -694,7 +694,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6702439742101993273
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,13 +1090,13 @@ PrefabInstance:
       addedObject: {fileID: 4913064071195052945}
     - targetCorrespondingSourceObject: {fileID: 2589350257021572669, guid: deeb8522a2fd43747be2a5e731e34685, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 6615297657262045118}
+    - targetCorrespondingSourceObject: {fileID: 2589350257021572669, guid: deeb8522a2fd43747be2a5e731e34685, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 6702439742101993273}
     - targetCorrespondingSourceObject: {fileID: 2589350257021572669, guid: deeb8522a2fd43747be2a5e731e34685, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1948849525124904057}
-    - targetCorrespondingSourceObject: {fileID: 2589350257021572669, guid: deeb8522a2fd43747be2a5e731e34685, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6615297657262045118}
     - targetCorrespondingSourceObject: {fileID: 2589350257021572669, guid: deeb8522a2fd43747be2a5e731e34685, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6455188290490670883}
