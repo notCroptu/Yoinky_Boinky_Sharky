@@ -2,12 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Splines;
 using UnityEngine.XR.Content.Interaction;
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class FishingCane : MonoBehaviour
 {
+    [SerializeField] private Transform _fishingCaneForward;
     [SerializeField] private Transform _throwingPos;
     [SerializeField] private Hook _hook;
+    [SerializeField] private float _angleThreshold = 40f;
+    [SerializeField] private float _velocityThreshold = 3f;
+    [SerializeField] private float _throwingVelocity = 3f;
     [SerializeField] private XRKnob _wheel;
     [SerializeField][Range(0f, 1f)] private float _neededValueToPull = 0.6f;
     [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
@@ -45,21 +48,23 @@ public class FishingCane : MonoBehaviour
 
         while (true)
         {
-            Vector3 dis = _lastPos - _throwingPos.position;
-
-            if ( _hook.Velocity.magnitude < dis.magnitude && dis.magnitude >= _triggeringDistance)
+            float angle = Vector3.Angle(_hook.Velocity, _fishingCaneForward.forward);
+            if ( Vector3.Angle(_hook.Velocity, _fishingCaneForward.forward) < _angleThreshold
+                && _hook.Velocity.magnitude < _velocityThreshold)
             {
-                _hook.PullHook(dis *10f);
-                Debug.Log("Pushed hook. ");
+                _hook.ThrowHook(_fishingCaneForward.forward *_throwingVelocity);
+                Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
             }
-
-            _lastPos = _throwingPos.position;
 
             if (_hook.Hooked)
                 break;
                 
             yield return null;
         }
+
+        _hook.StopThrow();
+
+        _lastPos = _throwingPos.position;
 
         while (true)
         {
