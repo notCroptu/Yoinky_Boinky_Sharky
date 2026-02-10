@@ -23,6 +23,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private SplineContainer _spline;
     [SerializeField][Min(3)]  private int _lineResolution = 30;
     [SerializeField][Min(0f)] private float _hookThrowForce = 2f;
+    [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
     
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField] private GameObject FishingCanePrefab;
@@ -65,6 +66,42 @@ public class Fisherman : MonoBehaviour
         }
 
         ChooseNewLocation();
+    }
+
+
+    private Coroutine _cor;
+    public void PickUp()
+    {
+        if (_cor != null)
+            StopCoroutine(_cor);
+        _cor = StartCoroutine(PullHook());
+    }
+
+    private Vector3 _lastPos;
+    private IEnumerator PullHook()
+    {
+        _lastPos = _hookTransform.position;
+
+        while (true)
+        {
+            Vector3 dis = _hookTransform.linearVelocity - _lastPos;
+            
+            if (dis.magnitude >= _triggeringDistance && dis.y < 0f)
+            {
+                ReverseFished(dis);
+                Debug.Log("Pulled with enough force of: " + dis.magnitude);
+                break;
+            }
+
+            _lastPos = _hookTransform.position;
+            yield return null;
+        }
+    }
+
+    public void Drop()
+    {
+        if (_cor != null)
+            StopCoroutine(_cor);
     }
 
     private void InitNewFisher()
