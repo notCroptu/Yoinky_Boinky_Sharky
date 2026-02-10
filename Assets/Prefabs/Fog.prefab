@@ -4758,7 +4758,7 @@ ParticleSystem:
     vectorLabel1_3: W
 --- !u!199 &5837157226951906862
 ParticleSystemRenderer:
-  serializedVersion: 6
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4777,6 +4777,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4798,9 +4800,11 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 2
@@ -4832,7 +4836,6 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
-  m_MaskInteraction: 0
 --- !u!1 &5039602391248865515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,7 +4865,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1648539122497628652}
+  - {fileID: 2533341468891918058}
   - {fileID: 7160337807391411119}
   - {fileID: 2843905896088983303}
   m_Father: {fileID: 0}
@@ -4892,12 +4895,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5664459945130702379}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.985, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 88.65, z: 0}
+  m_LocalScale: {x: 90, y: 90, z: 90}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1648539122497628652}
+  m_Father: {fileID: 3582400073090360433}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!114 &884207150370086699
 MonoBehaviour:
@@ -4918,11 +4921,15 @@ MonoBehaviour:
   m_EndAngleFade: 180
   m_UVScale: {x: 8, y: 8}
   m_UVBias: {x: 0, y: 0.2978866}
-  m_DecalLayerMask: 1
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
   m_ScaleMode: 1
   m_Offset: {x: 0, y: 0, z: 2}
   m_Size: {x: 1.2, y: 1.2, z: 4}
   m_FadeFactor: 1
+  version: 1
+  m_DecalLayerMask: 1
 --- !u!1 &7099590473644512689
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,6 +4991,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5005,39 +5014,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &7636875725624182254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1648539122497628652}
-  m_Layer: 0
-  m_Name: FogCylinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1648539122497628652
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7636875725624182254}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 90, y: 90, z: 90}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2533341468891918058}
-  m_Father: {fileID: 3582400073090360433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 429450618594519325}
   - component: {fileID: 8281325413982625896}
   - component: {fileID: 2464021397908717164}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -63,6 +63,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,9 +86,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!54 &8281325413982625896
 Rigidbody:
@@ -95,10 +99,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579589840852697568}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 2
-  m_AngularDrag: 1
+  m_LinearDamping: 2
+  m_AngularDamping: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -146,7 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3137943617549743928}
   - component: {fileID: 5452308534916918813}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,6 +246,8 @@ MonoBehaviour:
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_Handle: {fileID: 301676085389049097}
   m_Value: 0
   m_ClampedMotion: 0
@@ -263,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6499964195039249235}
   - component: {fileID: 5169025628442503717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +293,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &5169025628442503717
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -306,6 +312,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -327,9 +335,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions:
   - {x: 0, y: 18.78, z: 0}
   m_Parameters:
@@ -387,7 +397,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
@@ -400,7 +409,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301676085389049097}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +443,7 @@ GameObject:
   - component: {fileID: 6690309042882108951}
   - component: {fileID: 1473586917405941180}
   - component: {fileID: 5044660277019526708}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Audio Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3190837124502705230}
   - component: {fileID: 4381521263774133003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,10 +640,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638463674059171269}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -660,7 +669,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577863735520096896}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThrowPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +703,7 @@ GameObject:
   - component: {fileID: 8003780063379333370}
   - component: {fileID: 7210337610257096592}
   - component: {fileID: 4868762919502275335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,6 +754,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -766,9 +777,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!136 &4868762919502275335
 CapsuleCollider:
@@ -802,7 +815,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7103795783937540880}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -834,7 +847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1643122220031527349}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -870,7 +883,7 @@ GameObject:
   - component: {fileID: 6295002912508079878}
   - component: {fileID: 7759222052631873420}
   - component: {fileID: 485460532463622573}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -920,6 +933,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -941,9 +956,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7428607405974332596
 GameObject:
@@ -955,7 +972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6966967407665557394}
   - component: {fileID: 2609062997981653761}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Feedback Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1059,7 @@ GameObject:
   - component: {fileID: 5092762524157873065}
   - component: {fileID: 2067099063302368949}
   - component: {fileID: 1433507064521874365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FishHook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1094,6 +1111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5092762524157873065}
+  _joint: {fileID: 2067099063302368949}
+  _ifFartherThan: 20
 --- !u!54 &5092762524157873065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1101,10 +1120,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8269183223186855244}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -1178,7 +1197,7 @@ GameObject:
   - component: {fileID: 8085330032614132503}
   - component: {fileID: 8542522817381151942}
   - component: {fileID: 3382174465814167831}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual Feedback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1368,6 +1387,10 @@ PrefabInstance:
       propertyPath: m_Renderer
       value: 
       objectReference: {fileID: 5636772922370002980}
+    - target: {fileID: 2693014957447061557, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4769098102207602864, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1429,6 +1452,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4769098102207602865, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_PredictedVisualsTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769098102207602865, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -1488,6 +1515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishingRod Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4769098102207602867, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_Drag
       value: 5
@@ -1499,6 +1530,14 @@ PrefabInstance:
     - target: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_AngularDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5802681059715807627, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966333412727363842, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1537,8 +1576,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951a52a3ddb682c4aa0352c349240c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fishingCaneForward: {fileID: 6025713769714100677}
   _throwingPos: {fileID: 1577863735520096896}
   _hook: {fileID: 198096618480983420}
+  _angleThreshold: 40
+  _velocityThreshold: 3
+  _throwingVelocity: 3
   _wheel: {fileID: 5452308534916918813}
   _neededValueToPull: 0.6
   _triggeringDistance: 0.6
@@ -1655,6 +1698,10 @@ PrefabInstance:
     - target: {fileID: 5058266724168858511, guid: bc7fc6ccbbbb4e344a475adab7c09115, type: 3}
       propertyPath: m_Name
       value: Bubbles
+      objectReference: {fileID: 0}
+    - target: {fileID: 5058266724168858511, guid: bc7fc6ccbbbb4e344a475adab7c09115, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1850,6 +1897,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1588443713212140790, guid: ad953634fb65b704bbff542eb3e380da, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4400622800768212614, guid: ad953634fb65b704bbff542eb3e380da, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.002
@@ -1865,6 +1916,10 @@ PrefabInstance:
     - target: {fileID: 4709170280449551018, guid: ad953634fb65b704bbff542eb3e380da, type: 3}
       propertyPath: m_Name
       value: Fishing Rod
+      objectReference: {fileID: 0}
+    - target: {fileID: 4709170280449551018, guid: ad953634fb65b704bbff542eb3e380da, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5337194126976086032, guid: ad953634fb65b704bbff542eb3e380da, type: 3}
       propertyPath: m_LocalPosition.x
