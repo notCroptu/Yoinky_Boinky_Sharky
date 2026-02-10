@@ -22,6 +22,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private LineRenderer _fishingLine;
     [SerializeField] private SplineContainer _spline;
     [SerializeField][Min(3)]  private int _lineResolution = 30;
+    [SerializeField][Min(0f)] private float _hookThrowForce = 2f;
     
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField] private GameObject FishingCanePrefab;
@@ -195,7 +196,7 @@ public class Fisherman : MonoBehaviour
         _hookTransform.isKinematic = false;
         Vector3 newVelocity = new Vector3(
                 (Random.value * 2 - 1f) * _radius,
-                -_radius * 4f,
+                -_radius * _hookThrowForce,
                 (Random.value * 2 - 1f) * _radius
             );
         
