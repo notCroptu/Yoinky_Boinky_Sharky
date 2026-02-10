@@ -1576,7 +1576,7 @@ MonoBehaviour:
   _initializeFisherAtATime: 3
   _fisherPool: {fileID: 226766406}
   _fishingCanePool: {fileID: 1306158985}
-  _fishingCane: {fileID: 0}
+  _fishingCane: {fileID: 6025713769714100678, guid: 2ee0b5f30208de8458456945a19a84f0, type: 3}
   _pullingForce: 10
   _spawnRadius: 7
   _waitTime: 2.3
