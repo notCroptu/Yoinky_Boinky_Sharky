@@ -246,6 +246,147 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &125960556
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 125960558}
+  - component: {fileID: 125960557}
+  m_Layer: 8
+  m_Name: Line
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!120 &125960557
+LineRenderer:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125960556}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 67e6902c4656aa545baad0b4632334c3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_Positions:
+  - {x: 0, y: 18.78, z: 0}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 0.1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_ColorSpace: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    textureScale: {x: 1, y: 1}
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
+  m_ApplyActiveColorSpace: 1
+--- !u!4 &125960558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125960556}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1.0000001}
+  m_LocalPosition: {x: 2.0999997, y: 1.06791, z: 0.7410002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &164337938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1269,6 +1410,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ActionId: 39bbf1ac-21a3-413d-90f6-6dbf6efeaabe
+--- !u!4 &1168210292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3928027251314062938, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+  m_PrefabInstance: {fileID: 8676703070292704504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306158984
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,14 +2382,15 @@ MonoBehaviour:
   _time: 3
   _movingDuration: 1
   _hookTransform: {fileID: 4769098101085723761}
+  _hookGrabInteractable: {fileID: 4769098101085723768}
   _hookPoint: {fileID: 4184490256163942652}
   _startPoint: {fileID: 164337939}
   _fishingPoint: {fileID: 1042130539}
   _fishingLine: {fileID: 1483051380}
   _spline: {fileID: 1390541687}
-  _lineResolution: 6
+  _lineResolution: 12
   _hookThrowForce: 2.4
-  _triggeringDistance: 3
+  _triggeringDistance: 1.5
   FishermanPrefabs:
   - {fileID: 4578448595113200552, guid: daf32fe9dee1e034f92572b7a9a805f2, type: 3}
   FishingCanePrefab: {fileID: 6025713769714100678, guid: 2ee0b5f30208de8458456945a19a84f0, type: 3}
@@ -2255,6 +2402,9 @@ MonoBehaviour:
   _spawnRadius: 7
   _waitTime: 2.3
   _possibility: 0.2
+  amplitude: 4
+  speed1: 1
+  speed2: 0.7
 --- !u!136 &2141222121
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2472,6 +2622,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1179484916420742736, guid: 95106bfbdbdd411429f5572f6d80ed7f, type: 3}
   m_PrefabInstance: {fileID: 4184490256163942651}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4769098101085723768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7108480199014298910, guid: 95106bfbdbdd411429f5572f6d80ed7f, type: 3}
+  m_PrefabInstance: {fileID: 4184490256163942651}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8676703070292704504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2483,6 +2644,14 @@ PrefabInstance:
     - target: {fileID: 1980409284844229465, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: m_Name
       value: FishingRod
+      objectReference: {fileID: 0}
+    - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: _startPoint
+      value: 
+      objectReference: {fileID: 1168210292}
+    - target: {fileID: 2980727897799215526, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8794653777106302590, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2544,3 +2713,4 @@ SceneRoots:
   - {fileID: 1435812227}
   - {fileID: 2766280995671296496}
   - {fileID: 8676703070292704504}
+  - {fileID: 125960558}

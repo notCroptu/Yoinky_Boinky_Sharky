@@ -1,7 +1,9 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Splines;
 using UnityEngine.XR.Content.Interaction;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class FishingCane : MonoBehaviour
 {
@@ -12,20 +14,9 @@ public class FishingCane : MonoBehaviour
     [SerializeField] private float _velocityThreshold = 3f;
     [SerializeField] private float _throwingVelocity = 3f;
     [SerializeField] private XRKnob _wheel;
+    [SerializeField] private XRGrabInteractable _cane;
     [SerializeField][Range(0f, 1f)] private float _neededValueToPull = 0.6f;
     [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
-
-    private void Awake()
-    {
-        Spline spline = _spline.Spline;
-        spline.Clear();
-
-        spline.Add(new BezierKnot(_startPoints[_startPoints.Length-1].position));
-        spline.Add(new BezierKnot(_hookPoint.position));
-
-        spline.SetTangentMode(0, TangentMode.AutoSmooth);
-        spline.SetTangentMode(1, TangentMode.AutoSmooth);
-    }
 
     private void Start()
     {
@@ -55,9 +46,18 @@ public class FishingCane : MonoBehaviour
                 _hook.ThrowHook(_fishingCaneForward.forward *_throwingVelocity);
                 Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
             }
-
+            
             if (_hook.Hooked)
+            {
+                foreach (IXRSelectInteractor interactor in _cane.interactorsSelecting)
+                {
+                    XRBaseInputInteractor controllerInteractor = interactor as XRBaseInputInteractor;
+                    if (controllerInteractor != null)
+                        controllerInteractor.SendHapticImpulse(1f, 0.4f);
+                }
+
                 break;
+            }
                 
             yield return null;
         }
@@ -68,18 +68,27 @@ public class FishingCane : MonoBehaviour
 
         while (true)
         {
-            if (_hook.Hooked)
+            foreach (IXRSelectInteractor interactor in _wheel.interactorsSelecting)
             {
-                if (_wheel.value > _neededValueToPull)
-                {
-                    Vector3 dis = _throwingPos.position - _lastPos;
+                XRBaseInputInteractor controllerInteractor = interactor as XRBaseInputInteractor;
+                if (controllerInteractor != null)
+                    controllerInteractor.SendHapticImpulse(_wheel.value, 0.2f);
+            }
 
-                    if (dis.magnitude >= _triggeringDistance)
-                    {
-                        _hook.PullHook(dis);
-                        Debug.Log("Pulled with enough force. ");
-                        break;
-                    }
+            if (_wheel.value > _neededValueToPull)
+            {
+                Vector3 dis = _throwingPos.position - _lastPos;
+
+                if (dis.magnitude >= _triggeringDistance)
+                {
+                    _hook.PullHook(dis);
+                    Debug.Log("Pulled with enough force. ");
+
+                    XRBaseInputInteractor controllerInteractor = _cane.firstInteractorSelecting as XRBaseInputInteractor;
+                    if (controllerInteractor != null)
+                        controllerInteractor.SendHapticImpulse(1f, 0.4f);
+
+                    break;
                 }
             }
 
@@ -91,10 +100,8 @@ public class FishingCane : MonoBehaviour
         }
     }
 
-    [SerializeField] private Transform _hookPoint;
-    [SerializeField] private Transform[] _startPoints;
+    [SerializeField] private Transform _startPoint;
     [SerializeField] private LineRenderer _fishingLine;
-    [SerializeField] private SplineContainer _spline;
     [SerializeField][Min(2)] private int _lineResolution;
     
     private void LateUpdate()
@@ -102,24 +109,21 @@ public class FishingCane : MonoBehaviour
         UpdateSpline();
     }
 
+    private Vector3 _lastStartPos;
+    private Vector3 _lastHookPos;
     private void UpdateSpline()
     {
-        Spline spline = _spline.Spline;
+        _fishingLine.positionCount = 2;
 
-        _fishingLine.positionCount = _lineResolution;
-        
-        for (int i = 0; i < _startPoints.Length - 1; i++)
+        if (_lastStartPos != _startPoint.position)
         {
-            _fishingLine.SetPosition(i, _startPoints[i].position);
+            _fishingLine.SetPosition(0, _startPoint.position);
+            _lastStartPos = _startPoint.position;
         }
-
-        spline.SetKnot(0, new BezierKnot(_startPoints[_startPoints.Length-1].position));
-        spline.SetKnot(1, new BezierKnot(_hookPoint.position));
-
-        for (int i = _startPoints.Length - 1; i < _fishingLine.positionCount; i++)
+        if (_lastHookPos != _hook.transform.position)
         {
-            float t = (float)(i - (_startPoints.Length - 1)) / (_fishingLine.positionCount - _startPoints.Length);
-            _fishingLine.SetPosition(i, _spline.EvaluatePosition(t));
+            _fishingLine.SetPosition(1, _hook.transform.position);
+            _lastHookPos = _hook.transform.position;
         }
     }
 

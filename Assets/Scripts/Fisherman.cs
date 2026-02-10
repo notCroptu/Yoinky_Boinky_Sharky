@@ -4,6 +4,9 @@ using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Fisherman : MonoBehaviour
 {
@@ -16,6 +19,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(0f)] private float _movingDuration = 1f;
 
     [SerializeField] private Rigidbody _hookTransform;
+    [SerializeField] private XRGrabInteractable _hookGrabInteractable;
     [SerializeField] private Transform _hookPoint;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _fishingPoint;
@@ -44,11 +48,13 @@ public class Fisherman : MonoBehaviour
 
         spline.Add(new BezierKnot(_startPoint.position));
         spline.Add(new BezierKnot(_fishingPoint.position));
+        spline.Add(new BezierKnot(_fishingPoint.position));
         spline.Add(new BezierKnot(_hookTransform.position));
 
         spline.SetTangentMode(0, TangentMode.AutoSmooth);
         spline.SetTangentMode(1, TangentMode.AutoSmooth);
         spline.SetTangentMode(2, TangentMode.AutoSmooth);
+        spline.SetTangentMode(3, TangentMode.AutoSmooth);
 
         Application.targetFrameRate = 90;
     }
@@ -82,19 +88,82 @@ public class Fisherman : MonoBehaviour
     {
         _lastPos = _hookTransform.position;
 
+        float blendTimer = 0f;
+        float blendDuration = 2f;
+        bool isLingering = false;
+        float lingerDuration = 0f;
+        float lingerTimer = 0f;
+
         while (true)
         {
-            Vector3 dis = _hookTransform.linearVelocity - _lastPos;
-            
-            if (dis.magnitude >= _triggeringDistance && dis.y < 0f)
+            if (isLingering)
             {
-                ReverseFished(dis);
-                Debug.Log("Pulled with enough force of: " + dis.magnitude);
-                break;
+                _midPointBlend = 0f;
+                lingerTimer += Time.deltaTime;
+
+                if (lingerTimer >= lingerDuration)
+                {
+                    isLingering = false;
+                    blendTimer = 0f;
+                }
+            }
+            else
+            {
+                blendTimer += Time.deltaTime;
+                float tRaw = blendTimer / blendDuration % 2f;
+                float t = (tRaw < 1f) ? tRaw : 2f - tRaw;
+                _midPointBlend = Mathf.Lerp(1f, 0f, t);
+
+                if (_midPointBlend <= 0.05f)
+                {
+                    isLingering = true;
+                    lingerTimer = 0f;
+                    lingerDuration = Random.Range(2f, 4f);
+                    _midPointBlend = 0f;
+                }
             }
 
-            _lastPos = _hookTransform.position;
+            if (_midPointBlend <= 0.05f)
+            {
+                XRBaseInputInteractor controllerInteractor = _hookGrabInteractable.firstInteractorSelecting as XRBaseInputInteractor;
+                if (controllerInteractor != null)
+                    controllerInteractor.SendHapticImpulse(0.8f, 0.2f);
+
+                Vector3 dis = _hookTransform.position - _lastPos;
+
+                if (dis.magnitude >= _triggeringDistance)
+                {
+                    Debug.Log("Pulling with enough force of: " + dis.magnitude + " dis y: " + dis.y);
+                    if (dis.y < 0f)
+                    {
+                        ReverseFished(dis);
+                        ReleaseHook();
+
+                        break;
+                    }
+                }
+
+                _lastPos = _hookTransform.position;
+            }
+
             yield return null;
+        }
+
+        DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
+    }
+    
+    private void ReleaseHook()
+    {
+        if (_hookGrabInteractable == null) return;
+
+        if (_hookGrabInteractable.isSelected)
+        {
+            IXRSelectInteractor interactor = _hookGrabInteractable.firstInteractorSelecting;
+            if (interactor != null)
+            {
+                _hookGrabInteractable.interactionManager.SelectExit(interactor, _hookGrabInteractable);
+                Debug.Log("Hook forcibly released!");
+            }
         }
     }
 
@@ -102,8 +171,9 @@ public class Fisherman : MonoBehaviour
     {
         if (_cor != null)
             StopCoroutine(_cor);
-    }
 
+        DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
+    }
     private void InitNewFisher()
     {
         GameObject go = Instantiate(FishermanPrefabs[Random.Range(0, FishermanPrefabs.Length)], _fisherPool);
@@ -196,21 +266,45 @@ public class Fisherman : MonoBehaviour
         UpdateSpline();
     }
 
+    private float _midPointBlend = 1f;
+    [SerializeField] private float amplitude = 4f;
+    [SerializeField] private float speed1 = 1f;
+    [SerializeField] private float speed2 = 0.7f;
+
     private void UpdateSpline()
     {
         Spline spline = _spline.Spline;
 
-        _fishingPoint.position = (_startPoint.position + _hookPoint.position) / 2f;
+        Vector3 startPos = _startPoint.position;
+        Vector3 endPos = _hookPoint.position;
 
-        spline.SetKnot(0, new BezierKnot(_startPoint.position));
-        spline.SetKnot(1, new BezierKnot(_fishingPoint.position));
-        spline.SetKnot(2, new BezierKnot(_hookPoint.position));
+        Vector3 mid1Base = Vector3.Lerp(startPos, endPos, 1f / 3f);
+        Vector3 mid2Base = Vector3.Lerp(startPos, endPos, 2f / 3f);
+
+        Vector3 mid1Osc = new Vector3(
+            Mathf.Sin(Time.time * speed1) * amplitude,
+            Mathf.Cos(Time.time * speed1 * 0.5f) * amplitude,
+            Mathf.Sin(Time.time * speed1 * 1.2f) * amplitude
+        );
+
+        Vector3 mid2Osc = new Vector3(
+            Mathf.Sin(Time.time * speed2 + 1f) * amplitude,
+            Mathf.Cos(Time.time * speed2 * 0.7f + 2f) * amplitude,
+            Mathf.Sin(Time.time * speed2 * 1.5f + 3f) * amplitude
+        );
+
+        Vector3 mid1 = Vector3.Lerp(mid1Base, mid1Base + mid1Osc, _midPointBlend);
+        Vector3 mid2 = Vector3.Lerp(mid2Base, mid2Base + mid2Osc, _midPointBlend);
+
+        spline.SetKnot(0, new BezierKnot(startPos));
+        spline.SetKnot(1, new BezierKnot(mid1));
+        spline.SetKnot(2, new BezierKnot(mid2));
+        spline.SetKnot(3, new BezierKnot(endPos));
 
         _fishingLine.positionCount = _lineResolution;
-
         for (int i = 0; i < _lineResolution; i++)
         {
-            float t = i / (_lineResolution - 1f);
+            float t = i / (float)(_lineResolution - 1);
             _fishingLine.SetPosition(i, _spline.EvaluatePosition(t));
         }
     }

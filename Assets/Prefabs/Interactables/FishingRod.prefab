@@ -66,6 +66,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6531170167892685857}
   - {fileID: 557263882152339011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -483,9 +484,7 @@ Transform:
   m_LocalPosition: {x: 2.871, y: -0.011, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6531170167892685857}
-  - {fileID: 1188498374390735538}
+  m_Children: []
   m_Father: {fileID: 557263882152339011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2980727897799215526
@@ -541,11 +540,11 @@ Transform:
   m_GameObject: {fileID: 3456542113575676734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3928027251314062938}
+  m_Father: {fileID: 8794653777106302590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!120 &8006814600955211635
 LineRenderer:
@@ -6039,6 +6038,7 @@ Transform:
   m_Children:
   - {fileID: 7404804605679742571}
   - {fileID: 1700189814409230798}
+  - {fileID: 1188498374390735538}
   - {fileID: 3928027251314062938}
   m_Father: {fileID: 8794653777106302590}
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -6071,14 +6071,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7619876038314062792}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.8710005, y: -0.011000037, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7641755299942615292}
   - {fileID: 7593983325551927740}
-  m_Father: {fileID: 3928027251314062938}
+  m_Father: {fileID: 557263882152339011}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7888083105910460830
 MonoBehaviour:
