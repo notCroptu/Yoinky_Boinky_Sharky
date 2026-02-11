@@ -60,8 +60,10 @@ public class Fisherman : MonoBehaviour
         Application.targetFrameRate = 90;
     }
 
+    private Quaternion _originalHookRot;
     private void Start()
     {
+        _originalHookRot = _hookTransform.rotation;
         _hookTransform.isKinematic = true;
 
         _mainObject.transform.position = _origin.transform.position;
@@ -195,6 +197,7 @@ public class Fisherman : MonoBehaviour
             StopCoroutine(_cor);
 
         DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
+        _hookTransform.rotation = _originalHookRot;
     }
     private void InitNewFisher()
     {
