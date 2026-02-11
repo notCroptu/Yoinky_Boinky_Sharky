@@ -264,8 +264,6 @@ public class Fisherman : MonoBehaviour
         _hookTransform.isKinematic = true;
         _hookTransform.transform.DOMove(newPos, _time);
 
-
-
         InitNewFisher(); // add new to pool to fetch later
         _collider.enabled = false;
 
