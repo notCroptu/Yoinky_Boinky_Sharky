@@ -40,11 +40,10 @@ public class FishingCane : MonoBehaviour
         while (true)
         {
             float angle = Vector3.Angle(_hook.Velocity, _fishingCaneForward.forward);
-            if ( Vector3.Angle(_hook.Velocity, _fishingCaneForward.forward) < _angleThreshold
-                && _hook.Velocity.magnitude < _velocityThreshold)
+            if ( angle < _angleThreshold && _hook.Velocity.magnitude > _velocityThreshold)
             {
-                _hook.ThrowHook(_fishingCaneForward.forward *_throwingVelocity);
                 Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
+                _hook.ThrowHook(_fishingCaneForward.forward *_throwingVelocity);
             }
             
             if (_hook.Hooked)

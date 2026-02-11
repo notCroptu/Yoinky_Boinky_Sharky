@@ -31,7 +31,6 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
 
     [SerializeField] private GameObject[] FishermanPrefabs;
-    [SerializeField] private GameObject FishingCanePrefab;
     [SerializeField][Min(1)] private int _initializeFisherAtATime = 4;
     [SerializeField] private Transform _fisherPool;
     [SerializeField] private Transform _fishingCanePool;
@@ -242,11 +241,6 @@ public class Fisherman : MonoBehaviour
             rb.AddTorque(direction * _pullingForce * 4f, ForceMode.Impulse);
         }
 
-        if (_fishingCane == null)
-        {
-            _fishingCane = Instantiate(FishingCanePrefab, _fishingCanePool);
-            _fishingCane.transform.position = Vector3.zero;
-        }
         if (_fishingCane.activeInHierarchy == false)
         {
             _fishingCane.transform.localPosition = newFishingPos * _spawnRadius;
