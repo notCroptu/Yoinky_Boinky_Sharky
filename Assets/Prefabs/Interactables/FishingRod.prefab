@@ -317,10 +317,10 @@ MonoBehaviour:
   _velocityThreshold: 3
   _throwingVelocity: 3
   _wheel: {fileID: 6553319270553574055}
-  _cane: {fileID: 0}
+  _cane: {fileID: 3678303945481171434}
   _neededValueToPull: 0.6
   _triggeringDistance: 3
-  _startPoint: {fileID: 0}
+  _startPoint: {fileID: 3928027251314062938}
   _fishingLine: {fileID: 8006814600955211635}
   _lineResolution: 6
 --- !u!114 &72525761341493260
@@ -511,7 +511,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &3456542113575676734
 GameObject:
   m_ObjectHideFlags: 0

@@ -505,6 +505,26 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1788385381}
+    - target: {fileID: 1342655905794534736, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _maxScale.x
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342655905794534736, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _maxScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342655905794534736, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _maxScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552407884143419762, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1552407884143419762, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_Name
       value: XR Origin (XR Rig)
@@ -561,6 +581,30 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1788385381}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4500007556695841477, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6678509202150728127, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -720,11 +764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ActionId: 39bbf1ac-21a3-413d-90f6-6dbf6efeaabe
---- !u!4 &1168210292 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3928027251314062938, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-  m_PrefabInstance: {fileID: 8676703070292704504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1306158984
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,7 +1045,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fec1dd9a9b70053489a7be2b19fda64d, type: 2}
+  - {fileID: 2100000, guid: 3abb4d22d200cf94f9073b7d365f92c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1040,7 +1079,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.6952114
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1903,13 +1942,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishingRod
       objectReference: {fileID: 0}
-    - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: _startPoint
+    - target: {fileID: 3928027251314062938, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.844
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928027251314062938, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5322858698331553606, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 1168210292}
-    - target: {fileID: 2980727897799215526, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
+      objectReference: {fileID: 2100000, guid: fec1dd9a9b70053489a7be2b19fda64d, type: 2}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Positions.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Parameters.textureScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Parameters.textureScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Positions.Array.data[1].y
+      value: 29.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Positions.Array.data[2].y
+      value: 18.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Positions.Array.data[3].y
+      value: 18.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.105
+      objectReference: {fileID: 0}
+    - target: {fileID: 8006814600955211635, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
+      value: 0.37300417
       objectReference: {fileID: 0}
     - target: {fileID: 8794653777106302590, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: m_LocalPosition.x
