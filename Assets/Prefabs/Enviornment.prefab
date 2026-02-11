@@ -6339,6 +6339,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6967225590046359357}
     m_Modifications:
+    - target: {fileID: 5657507549954271946, guid: a7afce08bcc98744caf685ddddd72fe3, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e67e8eb273fcc3a4a8c4080b0e1e5c1b, type: 2}
     - target: {fileID: 6161906516576357151, guid: a7afce08bcc98744caf685ddddd72fe3, type: 3}
       propertyPath: m_Name
       value: Skol_Chair (1)
@@ -8375,6 +8379,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6645597215997259703, guid: 5967e08ae7be50b44a729d2f048140de, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94becce15923f4f41822c89fdade7c44, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

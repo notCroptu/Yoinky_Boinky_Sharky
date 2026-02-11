@@ -317,13 +317,11 @@ MonoBehaviour:
   _velocityThreshold: 3
   _throwingVelocity: 3
   _wheel: {fileID: 6553319270553574055}
+  _cane: {fileID: 0}
   _neededValueToPull: 0.6
   _triggeringDistance: 3
-  _hookPoint: {fileID: 1188498374390735538}
-  _startPoints:
-  - {fileID: 3928027251314062938}
+  _startPoint: {fileID: 0}
   _fishingLine: {fileID: 8006814600955211635}
-  _spline: {fileID: 72525761341493260}
   _lineResolution: 6
 --- !u!114 &72525761341493260
 MonoBehaviour:
@@ -572,7 +570,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67e6902c4656aa545baad0b4632334c3, type: 2}
+  - {fileID: 2100000, guid: fec1dd9a9b70053489a7be2b19fda64d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
