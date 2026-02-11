@@ -130,7 +130,7 @@ Material:
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
-    - _WaveAmplitude: 1.5
+    - _WaveAmplitude: 0.5
     - _WaveFrequency: 30
     - _WaveNoiseFrequency: 0.4
     - _WaveSpeed: 0.2

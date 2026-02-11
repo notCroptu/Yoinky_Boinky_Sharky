@@ -12,7 +12,7 @@ public class Fin : MonoBehaviour
         Vector2 m_GripRightRange = new Vector2(-0.0125f, -0.011f);
 
         [SerializeField]
-        XRInputValueReader<float> m_GripInput = new XRInputValueReader<float>("Grip");
+        XRInputValueReader<float> m_GripInput = new XRInputValueReader<float>("grip");
 
         void OnEnable()
         {
@@ -35,8 +35,8 @@ public class Fin : MonoBehaviour
         {
             if (m_GripInput != null)
             {
-                var gripVal = m_GripInput.ReadValue();
-                _animator.SetFloat("Blend", Mathf.Lerp(m_GripRightRange.x, m_GripRightRange.y, gripVal));
+            var gripVal = m_GripInput.ReadValue();
+            _animator.SetFloat("Blend", gripVal);
             }
         }
 }
