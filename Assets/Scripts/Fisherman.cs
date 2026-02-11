@@ -18,6 +18,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Min(0f)] private float _time = 3f;
     [SerializeField][Min(0f)] private float _movingDuration = 1f;
 
+    [SerializeField] private Transform _playerTransform;
     [SerializeField] private Rigidbody _hookTransform;
     [SerializeField] private XRGrabInteractable _hookGrabInteractable;
     [SerializeField] private Transform _hookPoint;
@@ -25,10 +26,10 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private Transform _fishingPoint;
     [SerializeField] private LineRenderer _fishingLine;
     [SerializeField] private SplineContainer _spline;
-    [SerializeField][Min(3)]  private int _lineResolution = 30;
-    [SerializeField][Min(0f)] private float _hookThrowForce = 2f;
+    [SerializeField][Min(3)] private int _lineResolution = 30;
+    [SerializeField] private float _hookTargetY = 2f;
     [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
-    
+
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField] private GameObject FishingCanePrefab;
     [SerializeField][Min(1)] private int _initializeFisherAtATime = 4;
@@ -86,7 +87,9 @@ public class Fisherman : MonoBehaviour
     private Vector3 _lastPos;
     private IEnumerator PullHook()
     {
-        _lastPos = _hookTransform.position;
+        yield return new WaitForSeconds(1f);
+        XRBaseInputInteractor controllerInteractor = _hookGrabInteractable.firstInteractorSelecting as XRBaseInputInteractor;
+        _lastPos = _playerTransform.InverseTransformPoint(_hookTransform.position);
 
         float blendTimer = 0f;
         float blendDuration = 2f;
@@ -104,7 +107,6 @@ public class Fisherman : MonoBehaviour
                 if (lingerTimer >= lingerDuration)
                 {
                     isLingering = false;
-                    blendTimer = 0f;
                 }
             }
             else
@@ -125,25 +127,28 @@ public class Fisherman : MonoBehaviour
 
             if (_midPointBlend <= 0.05f)
             {
-                XRBaseInputInteractor controllerInteractor = _hookGrabInteractable.firstInteractorSelecting as XRBaseInputInteractor;
                 if (controllerInteractor != null)
                     controllerInteractor.SendHapticImpulse(0.8f, 0.2f);
 
-                Vector3 dis = _hookTransform.position - _lastPos;
+                Vector3 dis = _playerTransform.InverseTransformPoint(_hookTransform.position) - _lastPos;
 
-                if (dis.magnitude >= _triggeringDistance)
+                // Debug.Log("Pulling with NOT enough force of: " + dis.magnitude + " dis y: " + dis.y);
+
+                if (dis.y < 0f)
                 {
-                    Debug.Log("Pulling with enough force of: " + dis.magnitude + " dis y: " + dis.y);
-                    if (dis.y < 0f)
-                    {
-                        ReverseFished(dis);
-                        ReleaseHook();
+                    if (controllerInteractor != null)
+                        controllerInteractor.SendHapticImpulse(Mathf.Max(0.4f, dis.normalized.magnitude), 0.2f);
 
+                    if (dis.magnitude >= _triggeringDistance)
+                    {
+                        Debug.Log("Pulling with enough force of: " + dis.magnitude + " dis y: " + dis.y);
+                        ReleaseHook();
+                        ReverseFished(dis);
                         break;
                     }
                 }
 
-                _lastPos = _hookTransform.position;
+                _lastPos = _playerTransform.InverseTransformPoint(_hookTransform.position);
             }
 
             yield return null;
@@ -151,7 +156,24 @@ public class Fisherman : MonoBehaviour
 
         DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
     }
-    
+
+    /*private void ReleaseHook()
+    {
+        if (_hookGrabInteractable == null) return;
+
+        if (_hookGrabInteractable.isSelected )
+        {
+            foreach (IXRSelectInteractor interactor in _hookGrabInteractable.interactorsSelecting)
+            {
+                if (interactor != null)
+                {
+                    _hookGrabInteractable.interactionManager.SelectExit(interactor, _hookGrabInteractable);
+                    Debug.Log("Hook forcibly released!");
+                }
+            }
+        }
+    }*/
+
     private void ReleaseHook()
     {
         if (_hookGrabInteractable == null) return;
@@ -202,6 +224,7 @@ public class Fisherman : MonoBehaviour
     public void ReverseFish() => ReverseFished(Random.insideUnitSphere);
     public void ReverseFished(Vector3 direction)
     {
+        Debug.Log("Reverse Fishing!");
         Vector3 newFishingPos = new Vector3(direction.x, 0f, direction.z).normalized;
 
         Transform fisher = _fisherPool.GetChild(0);
@@ -213,7 +236,7 @@ public class Fisherman : MonoBehaviour
         if (rb != null)
         {
             rb.AddForce(direction * _pullingForce, ForceMode.Impulse);
-            rb.AddTorque(direction * _pullingForce*4f, ForceMode.Impulse);
+            rb.AddTorque(direction * _pullingForce * 4f, ForceMode.Impulse);
         }
 
         if (_fishingCane == null)
@@ -231,17 +254,17 @@ public class Fisherman : MonoBehaviour
             if (rbC != null)
             {
                 rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
-                rbC.AddTorque(direction * _pullingForce*2f, ForceMode.Impulse);
+                rbC.AddTorque(direction * _pullingForce * 2f, ForceMode.Impulse);
             }
         }
-        
+
         Vector3 newPos = _mainObject.transform.position + new Vector3(0f, _addedHeight, 0f);
 
         _mainObject.transform.DOMove(newPos, _time);
         _hookTransform.isKinematic = true;
         _hookTransform.transform.DOMove(newPos, _time);
 
-    
+
 
         InitNewFisher(); // add new to pool to fetch later
         _collider.enabled = false;
@@ -309,6 +332,15 @@ public class Fisherman : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!_hookGrabInteractable.isSelected && _hookTransform.linearVelocity.magnitude < 0.1f &&
+            (_hookTransform.position.y < (_hookTargetY - 1f) || _hookTransform.position.y > (_hookTargetY + 1f)))
+        {
+            RBGoToY(_hookTargetY, _hookTransform);
+        }
+    }
+
     private void ChooseNewLocation()
     {
         Vector3 newPos = _origin.position
@@ -331,12 +363,24 @@ public class Fisherman : MonoBehaviour
         _hookTransform.transform.localPosition = _startPoint.localPosition;
 
         _hookTransform.isKinematic = false;
+        RBGoToY(_hookTargetY, _hookTransform);
+    }
+
+    private void RBGoToY(float targetY, Rigidbody rb)
+    {
+        if (rb.isKinematic) return;
+
+        float deltaH = targetY - rb.position.y;
+        
+        float gravity = Physics.gravity.magnitude;
+        float velocityRequired = Mathf.Sign(deltaH) * Mathf.Sqrt(2 * gravity * Mathf.Abs(deltaH)) + (deltaH * rb.linearDamping);
+
         Vector3 newVelocity = new Vector3(
                 (Random.value * 2 - 1f) * _radius,
-                -_radius * _hookThrowForce,
+                velocityRequired * rb.mass,
                 (Random.value * 2 - 1f) * _radius
             );
-        
-        _hookTransform.AddForce(newVelocity, ForceMode.Impulse);
+
+        rb.AddForce(newVelocity, ForceMode.Impulse);
     }
 }

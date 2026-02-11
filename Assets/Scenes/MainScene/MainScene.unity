@@ -480,6 +480,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2141222119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &415111404 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 462321257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &462321257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2381,6 +2386,7 @@ MonoBehaviour:
   _addedHeight: 10
   _time: 3
   _movingDuration: 1
+  _playerTransform: {fileID: 415111404}
   _hookTransform: {fileID: 4769098101085723761}
   _hookGrabInteractable: {fileID: 4769098101085723768}
   _hookPoint: {fileID: 4184490256163942652}
@@ -2389,8 +2395,8 @@ MonoBehaviour:
   _fishingLine: {fileID: 1483051380}
   _spline: {fileID: 1390541687}
   _lineResolution: 12
-  _hookThrowForce: 2.4
-  _triggeringDistance: 1.5
+  _hookTargetY: 5
+  _triggeringDistance: 1
   FishermanPrefabs:
   - {fileID: 4578448595113200552, guid: daf32fe9dee1e034f92572b7a9a805f2, type: 3}
   FishingCanePrefab: {fileID: 6025713769714100678, guid: 2ee0b5f30208de8458456945a19a84f0, type: 3}
