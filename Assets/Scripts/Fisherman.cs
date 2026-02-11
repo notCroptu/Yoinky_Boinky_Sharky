@@ -1,10 +1,8 @@
 using System.Collections;
 using DG.Tweening;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Splines;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
@@ -33,7 +31,6 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField][Min(1)] private int _initializeFisherAtATime = 4;
     [SerializeField] private Transform _fisherPool;
-    [SerializeField] private Transform _fishingCanePool;
     [SerializeField] private GameObject _fishingCane;
     [SerializeField][Min(1f)] private float _pullingForce;
     [SerializeField][Min(0f)] private float _spawnRadius = 5f;
