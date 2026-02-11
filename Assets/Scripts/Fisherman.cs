@@ -18,6 +18,7 @@ public class Fisherman : MonoBehaviour
 
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Rigidbody _hookTransform;
+    [SerializeField] private Animator _hookAnim;
     [SerializeField] private XRGrabInteractable _hookGrabInteractable;
     [SerializeField] private Transform _hookPoint;
     [SerializeField] private Transform _startPoint;
@@ -80,6 +81,7 @@ public class Fisherman : MonoBehaviour
         if (_cor != null)
             StopCoroutine(_cor);
         _cor = StartCoroutine(PullHook());
+        _hookAnim.StopPlayback();
     }
 
     private Vector3 _lastPos;
@@ -128,25 +130,27 @@ public class Fisherman : MonoBehaviour
                 if (controllerInteractor != null)
                     controllerInteractor.SendHapticImpulse(0.8f, 0.2f);
 
-                Vector3 dis = _playerTransform.InverseTransformPoint(_hookTransform.position) - _lastPos;
+                Vector3 worldDis = _hookTransform.position - _lastPos;
 
-                // Debug.Log("Pulling with NOT enough force of: " + dis.magnitude + " dis y: " + dis.y);
+                float pullAmount = Vector3.Dot(worldDis, -_playerTransform.up);
 
-                if (dis.y < 0f)
+                Debug.Log("Pulling with NOT enough force of: " + worldDis.magnitude + " pullAmount: " + pullAmount);
+
+                if (pullAmount > 0f)
                 {
                     if (controllerInteractor != null)
-                        controllerInteractor.SendHapticImpulse(Mathf.Max(0.4f, dis.normalized.magnitude), 0.2f);
+                        controllerInteractor.SendHapticImpulse(Mathf.Max(0.4f, worldDis.magnitude), 0.2f);
 
-                    if (dis.magnitude >= _triggeringDistance)
+                    if (worldDis.magnitude >= _triggeringDistance)
                     {
-                        Debug.Log("Pulling with enough force of: " + dis.magnitude + " dis y: " + dis.y);
+                        Debug.Log("Pulling with enough force of: " + worldDis.magnitude + " pullAmount: " + pullAmount);
                         ReleaseHook();
-                        ReverseFished(dis);
+                        ReverseFished(worldDis);
                         break;
                     }
                 }
 
-                _lastPos = _playerTransform.InverseTransformPoint(_hookTransform.position);
+                _lastPos = _hookTransform.position;
             }
 
             yield return null;
@@ -191,6 +195,8 @@ public class Fisherman : MonoBehaviour
     {
         if (_cor != null)
             StopCoroutine(_cor);
+        
+        _hookAnim.StartPlayback();
 
         DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
         _hookTransform.rotation = _originalHookRot;
