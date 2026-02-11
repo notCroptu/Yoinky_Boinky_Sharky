@@ -335,9 +335,9 @@ public class Fisherman : MonoBehaviour
     private void FixedUpdate()
     {
         if (!_hookGrabInteractable.isSelected && _hookTransform.linearVelocity.magnitude < 0.1f &&
-            (_hookTransform.position.y < (_hookTargetY - 1f) || _hookTransform.position.y > (_hookTargetY + 1f)))
+            (_hookTransform.position.y < (_hookTargetY - 2f) || _hookTransform.position.y > (_hookTargetY + 2f)))
         {
-            RBGoToY(_hookTargetY, _hookTransform);
+            RBGoToY(_hookTargetY, _hookTransform,Vector3.zero);
         }
     }
 
@@ -363,23 +363,20 @@ public class Fisherman : MonoBehaviour
         _hookTransform.transform.localPosition = _startPoint.localPosition;
 
         _hookTransform.isKinematic = false;
-        RBGoToY(_hookTargetY, _hookTransform);
+
+        Vector3 newVelocity = new Vector3((Random.value * 2 - 1f) * _radius, 0f, (Random.value * 2 - 1f) * _radius);
+        RBGoToY(_hookTargetY, _hookTransform, newVelocity);
     }
 
-    private void RBGoToY(float targetY, Rigidbody rb)
+    private void RBGoToY(float targetY, Rigidbody rb, Vector3 plus)
     {
         if (rb.isKinematic) return;
 
         float deltaH = targetY - rb.position.y;
         
-        float gravity = Physics.gravity.magnitude;
-        float velocityRequired = Mathf.Sign(deltaH) * Mathf.Sqrt(2 * gravity * Mathf.Abs(deltaH)) + (deltaH * rb.linearDamping);
+        float velocityRequired = Mathf.Sign(deltaH) * Mathf.Sqrt(2 * Mathf.Abs(deltaH)) + (deltaH * rb.linearDamping);
 
-        Vector3 newVelocity = new Vector3(
-                (Random.value * 2 - 1f) * _radius,
-                velocityRequired * rb.mass,
-                (Random.value * 2 - 1f) * _radius
-            );
+        Vector3 newVelocity = plus + new Vector3(0f, velocityRequired * rb.mass, 0f) -  rb.linearVelocity;
 
         rb.AddForce(newVelocity, ForceMode.Impulse);
     }
