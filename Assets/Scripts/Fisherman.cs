@@ -38,6 +38,8 @@ public class Fisherman : MonoBehaviour
 
     [SerializeField][Min(0.1f)] private float _waitTime = 2.3f;
     [SerializeField][Range(0f, 1f)] private float _possibility = 0.2f;
+    [SerializeField] private AudioClip[] _fallsounds;
+    [SerializeField] private AudioSource _fallSource;
 
     private void Awake()
     {
@@ -230,6 +232,7 @@ public class Fisherman : MonoBehaviour
     public void ReverseFished(Vector3 direction)
     {
         Debug.Log("Reverse Fishing!");
+        Sound.PlaySound(_fallSource, _fallsounds);
         Vector3 newFishingPos = new Vector3(direction.x, 0f, direction.z).normalized;
 
         Transform fisher = _fisherPool.GetChild(0);
