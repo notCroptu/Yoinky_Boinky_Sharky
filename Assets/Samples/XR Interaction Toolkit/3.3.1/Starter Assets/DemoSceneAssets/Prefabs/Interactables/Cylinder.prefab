@@ -454,10 +454,6 @@ PrefabInstance:
       value: Highlight Interaction Affordance
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -497,10 +493,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7396278978564332023, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
-      propertyPath: m_Renderer
-      value: 
-      objectReference: {fileID: 7428246769315610209}
     - target: {fileID: 8634317094661461186, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_InteractableSource
       value: 
