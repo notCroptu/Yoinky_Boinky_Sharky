@@ -29,11 +29,11 @@ MonoBehaviour:
       stateEntered: {fileID: 0}
       stateExited: {fileID: 0}
     - stateName: selected
-      stateEntered: {fileID: 8300000, guid: cbfa81412df3de54b90d6a4322f0e9a9, type: 3}
+      stateEntered: {fileID: 0}
       stateExited: {fileID: 0}
     - stateName: activated
-      stateEntered: {fileID: 8300000, guid: cbfa81412df3de54b90d6a4322f0e9a9, type: 3}
+      stateEntered: {fileID: 0}
       stateExited: {fileID: 0}
     - stateName: focused
-      stateEntered: {fileID: 8300000, guid: cbfa81412df3de54b90d6a4322f0e9a9, type: 3}
+      stateEntered: {fileID: 0}
       stateExited: {fileID: 0}

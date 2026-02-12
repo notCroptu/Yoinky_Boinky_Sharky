@@ -783,7 +783,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!1 &1316853283282549446
 GameObject:
@@ -1143,15 +1143,15 @@ MonoBehaviour:
   _leftController: {fileID: 202364688}
   _rightController: {fileID: 1670256625}
   _resetDistance: 0.8
-  _chompDistance: 0.3
-  _speedThreshold: 0.3
+  _chompDistance: 0.5
+  _speedThreshold: 0.11
   _targetLayer:
     serializedVersion: 2
     m_Bits: 128
   _rayDistance: 3
   _horizontalTolerance: 0.25
   _chompSounds:
-  - {fileID: 8300000, guid: 7f9bb27b4d8690342a008f2666f0ef90, type: 3}
+  - {fileID: 8300000, guid: 3e4525ef11f3f1d4eb564d0152579e69, type: 3}
   _chompSource: {fileID: 6793455062554062502}
   _leftHap: {fileID: 8559622106701032237}
   _rightHap: {fileID: 1718513916334437810}
@@ -6799,7 +6799,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 130500635472496801, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 385
+      value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 2447424620550846319, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_Name
@@ -6859,7 +6859,7 @@ PrefabInstance:
       objectReference: {fileID: 4238984354899526239}
     - target: {fileID: 8229381180640938747, guid: b200f6587d118224eba8467281481800, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147484065
+      value: 2147484064
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6903,7 +6903,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1255647619390271626, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_RaycastMask.m_Bits
-      value: 2147484065
+      value: 2147484064
       objectReference: {fileID: 0}
     - target: {fileID: 2442306273320644280, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_FarAttachMode
@@ -6971,7 +6971,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7104419533170684624, guid: 3df3e1220f2164f448701a6de8084f92, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 385
+      value: 384
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
