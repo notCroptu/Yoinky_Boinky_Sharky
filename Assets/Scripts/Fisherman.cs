@@ -32,6 +32,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private GameObject[] FishermanPrefabs;
     [SerializeField][Min(1)] private int _initializeFisherAtATime = 4;
     [SerializeField] private Transform _fisherPool;
+    [SerializeField] private Transform _fisherPoolOn;
     [SerializeField] private GameObject _fishingCane;
     [SerializeField][Min(1f)] private float _pullingForce;
     [SerializeField][Min(0f)] private float _spawnRadius = 5f;
@@ -71,6 +72,7 @@ public class Fisherman : MonoBehaviour
 
         _mainObject.transform.position = _origin.transform.position;
         _fisherPool.gameObject.SetActive(false);
+        _fisherPoolOn.gameObject.SetActive(true);
 
         for (int i = 0; i < _initializeFisherAtATime; i++)
         {
@@ -252,7 +254,7 @@ public class Fisherman : MonoBehaviour
         fisher.transform.localPosition = newFishingPos;
         fisher.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
         Rigidbody rb = fisher.GetComponentInChildren<Rigidbody>();
-        fisher.SetParent(null);
+        fisher.SetParent(_fisherPoolOn);
 
         if (rb != null)
         {
@@ -289,9 +291,11 @@ public class Fisherman : MonoBehaviour
     private IEnumerator TryChooseNewLocation()
     {
         YieldInstruction wfs = new WaitForSeconds(_waitTime);
+        WaitUntil wu = new WaitUntil(() => (_fisherPool.childCount + _fisherPoolOn.childCount) <= _initializeFisherAtATime);
 
         do
         {
+            yield return wu;
             yield return wfs;
         } while (Random.Range(0f, 1f) > _possibility);
 

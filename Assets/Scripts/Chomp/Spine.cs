@@ -9,7 +9,8 @@ public class Spine : Member
     protected override IEnumerator ShowFace()
     {
         _blood.transform.position = transform.position;
-        _blood.Emit(48);
+        _blood.Emit(64);
+        Sound.PlaySound(_screamSource, _screamSounds);
 
         yield return new WaitForSeconds(0.5f);
         
@@ -19,12 +20,10 @@ public class Spine : Member
             go.SetActive(false);
         
         _painFace.SetActive(true);
-
-        Sound.PlaySound(_screamSource, _screamSounds);
             
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         _death.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         Destroy(_fishermin);
     }

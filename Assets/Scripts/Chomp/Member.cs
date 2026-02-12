@@ -29,14 +29,13 @@ public class Member : MonoBehaviour
         _blood.transform.position = transform.position;
         _blood.Emit(16);
 
+        _pain[Random.Range(0, _pain.Length)].SetActive(true);
+        Sound.PlaySound(_screamSource, _screamSounds);
+
         yield return new WaitForSeconds(0.5f);
         
         foreach (GameObject go in _normal)
             go.SetActive(false);
-        
-        _pain[Random.Range(0, _pain.Length)].SetActive(true);
-
-        Sound.PlaySound(_screamSource, _screamSounds);
             
         yield return new WaitForSeconds(4f);
 
@@ -45,6 +44,6 @@ public class Member : MonoBehaviour
         
         _normal[Random.Range(0, _normal.Length)].SetActive(true);
 
-        gameObject.SetActive(false);
+        gameObject?.SetActive(false);
     }
 }

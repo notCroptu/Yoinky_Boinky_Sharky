@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
   m_AutoFindParentInteractableInHierarchy: 0
-  m_ParentInteractableObject: {fileID: 3678303945481171434}
+  m_ParentInteractableObject: {fileID: 0}
   m_Handle: {fileID: 5277466211581274563}
   m_Value: 0
   m_ClampedMotion: 0
