@@ -28,7 +28,7 @@ public class BubbleHissTrail : MonoBehaviour
         if (_rigidbody == null)
         {
             Debug.Log("Rigidbody not assigned. ");
-            enabled = false;
+            _rigidbody = GetComponentInParent<Rigidbody>();
         }
         else
             _center = _rigidbody.transform;
@@ -40,6 +40,7 @@ public class BubbleHissTrail : MonoBehaviour
 
         // make new color alpha vary by lerping with speed
         float rate = Mathf.InverseLerp(_speeds.x, _speeds.y, speed);
+        Debug.Log("Rate: " + rate);
 
         _module.rateOverTime = Mathf.Lerp(_rateOverTime.x, _rateOverTime.y, rate);
         UpdateVolume();

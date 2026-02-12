@@ -19,8 +19,8 @@ public class RockShip : MonoBehaviour
     private void Update()
     {
         // bob up and down
-        float bob = _originalY + ((float)Math.Sin(Time.time) * _bobbingMultiplier);
-        transform.position = new Vector3(transform.position.x, bob, transform.position.z);
+        float bob = (float)Math.Sin(Time.time) * _bobbingMultiplier;
+        transform.position = transform.position + new Vector3(0f, bob, 0f);
 
         Quaternion newRotation = _startRotation;
         // side to side

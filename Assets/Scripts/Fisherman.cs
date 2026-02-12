@@ -244,10 +244,10 @@ public class Fisherman : MonoBehaviour
     {
         Debug.Log("Reverse Fishing!");
         Sound.PlaySound(_fallSource, _fallsounds);
-        Vector3 newFishingPos = new Vector3(direction.x, 0f, direction.z).normalized;
+        Vector3 newFishingPos = _startPoint.localPosition; // *_spawnRadius;
 
         Transform fisher = _fisherPool.GetChild(0);
-        fisher.transform.localPosition = newFishingPos * _spawnRadius;
+        fisher.transform.localPosition = newFishingPos;
         fisher.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
         Rigidbody rb = fisher.GetComponentInChildren<Rigidbody>();
         fisher.SetParent(null);
@@ -260,7 +260,7 @@ public class Fisherman : MonoBehaviour
 
         if (_fishingCane.activeInHierarchy == false)
         {
-            _fishingCane.transform.localPosition = newFishingPos * _spawnRadius;
+            _fishingCane.transform.localPosition = newFishingPos;
             _fishingCane.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
             Rigidbody rbC = _fishingCane.GetComponentInChildren<Rigidbody>();
             _fishingCane.transform.SetParent(null);

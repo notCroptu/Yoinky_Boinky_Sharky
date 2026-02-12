@@ -33,8 +33,10 @@ public class Chomp : MonoBehaviour
         float rightDeltaY = _rightController.position.y - _prevRightPos.y;
 
         bool movingOpposite = leftDeltaY * rightDeltaY < 0;
-        bool movingFastEnough = Mathf.Abs(leftDeltaY) > _speedThreshold &&
-            Mathf.Abs(rightDeltaY) > _speedThreshold;
+        bool movingFastEnough = (Mathf.Abs(leftDeltaY) + Mathf.Abs(rightDeltaY)) > _speedThreshold;
+
+        if ( horizontalDistance < _horizontalTolerance || verticalDistance < _chompDistance || movingOpposite || movingFastEnough)
+            Debug.Log("In corrrect X: " + (horizontalDistance < _horizontalTolerance) + " In correct Y: " + (verticalDistance < _chompDistance) + " vertical y: " + verticalDistance + " moving opp: " + movingOpposite + " fast enough: " + movingFastEnough + " with vel: " + (Mathf.Abs(leftDeltaY) + Mathf.Abs(rightDeltaY)) +  " would win: " + (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance && movingOpposite && movingFastEnough));
 
         if (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance && movingOpposite && movingFastEnough)
             TryEatTarget();
@@ -52,8 +54,12 @@ public class Chomp : MonoBehaviour
     {
         isChomping = true;
 
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, _rayDistance, _targetLayer))
+        Vector3 midway = (_leftController.forward.normalized + _rightController.forward.normalized).normalized;
+        Vector3 position = (_leftController.position + _rightController.position)/2f;
+
+        position -= midway.normalized * 0.2f;
+
+        if (Physics.SphereCast(position, 0.2f, midway, out RaycastHit hit, _rayDistance, _targetLayer))
         {
             Member member = hit.collider.GetComponent<Member>();
             if (member != null)
