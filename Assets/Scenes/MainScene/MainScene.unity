@@ -991,8 +991,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Belly
   _belly: {fileID: 965374720}
-  _joint: {fileID: 965374716}
-  _minMaxYJointAnchor: {x: 0.5, y: 0.5}
   _minScale: {x: 1, y: 0.8, z: 1}
   _maxScale: {x: 3.2, y: 2.6, z: 4}
   _scalingAmount: 0.2
@@ -1116,7 +1114,7 @@ Transform:
   m_GameObject: {fileID: 965374714}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0.1}
   m_LocalScale: {x: 3.2, y: 2.6, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []

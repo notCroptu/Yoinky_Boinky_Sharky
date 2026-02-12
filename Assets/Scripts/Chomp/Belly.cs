@@ -26,7 +26,7 @@ public class Belly : MonoBehaviour
         _current = Mathf.Clamp01(_current);
 
         Vector3 newScale = Vector3.Lerp(_minScale, _maxScale, _current);
-        DOTween.To(() => _belly.localScale, x => _belly.localScale = x, newScale, 2).SetEase(Ease.OutBounce);
+        DOTween.To(() => _belly.localScale, x => _belly.localScale = x, newScale, 1.2f).SetEase(Ease.OutElastic);
     }
 
     private void Update()
