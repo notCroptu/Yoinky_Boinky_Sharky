@@ -152,6 +152,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShrimpGun
       objectReference: {fileID: 0}
+    - target: {fileID: 1486661543501798017, guid: c7195897dde2a964b90698ec2d4463ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3691033373093827370, guid: c7195897dde2a964b90698ec2d4463ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a0953ef1aa4d7245b2eea2ca19c0b8a, type: 2}
+    - target: {fileID: 8408532247226457051, guid: c7195897dde2a964b90698ec2d4463ea, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7a0953ef1aa4d7245b2eea2ca19c0b8a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
