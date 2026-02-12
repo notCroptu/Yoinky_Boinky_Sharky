@@ -1,9 +1,9 @@
 using System.Collections;
 using DG.Tweening;
 using NaughtyAttributes;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Belly : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class Belly : MonoBehaviour
 
 
     [SerializeField] private GameObject _dieCanvas;
-    [SerializeField] private TMP_Text _dieText;
+    [SerializeField] private Text _dieText;
     [SerializeField] private string _dieStarve;
     [SerializeField] private string _dieExplode;
 

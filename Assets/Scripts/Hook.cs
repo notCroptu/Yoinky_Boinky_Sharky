@@ -25,17 +25,16 @@ public class Hook : MonoBehaviour
 
     private void OnEnable()
     {
-        _rigidbody.isKinematic = false;
         _active = true;
-        StopThrow();
+        ConnectBody();
     }
 
     private void OnDisable()
     {
+        _rigidbody.isKinematic = false;
         _active = false;
-        _rigidbody.isKinematic = true;
         transform.localPosition = _originalPos;
-        StopThrow();
+        ConnectBody();
     }
 
     public void HookHook()
@@ -51,17 +50,17 @@ public class Hook : MonoBehaviour
 
     public void ThrowHook(Vector3 velocity)
     {
-        _rigidbody.isKinematic = false;
         _rigidbody.AddForce(velocity, ForceMode.Force);
 
         if (_ifFartherThan < Vector3.Distance(targetBody.position, transform.position))
-            StopThrow();
+            ConnectBody();
         
         _joint.connectedBody = null;
     }
 
-    public void StopThrow()
+    public void ConnectBody()
     {
+        Debug.Log("Connected hook");
         if (targetBody == null) return;
         _joint.connectedBody = targetBody;
        targetBody.WakeUp();

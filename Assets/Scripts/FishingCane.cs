@@ -41,15 +41,37 @@ public class FishingCane : MonoBehaviour
     {
         _lastPos = _throwingPos.position;
 
+        float hookTime = 0f;
+        bool start = false;
+        Vector3 initAngle = _fishingCaneForward.forward;
+
         while (true)
         {
-            float angle = Vector3.Angle(_hook.Velocity, _fishingCaneForward.forward);
-            if ( angle < _angleThreshold && _hook.Velocity.magnitude > _velocityThreshold)
+            if (hookTime < 0f)
+                initAngle = _fishingCaneForward.forward;
+            float angle = Vector3.Angle(_hook.Velocity, initAngle);
+
+            if (angle < _angleThreshold && _hook.Velocity.magnitude > _velocityThreshold)
             {
-                Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
-                _hook.ThrowHook(_fishingCaneForward.forward *_throwingVelocity);
+                if (start == false)
+                {
+                    initAngle = _fishingCaneForward.forward;
+                    start = true;
+                }
+
+                if (hookTime < 4f)
+                {
+                    Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
+                    _hook.ThrowHook(_fishingCaneForward.forward * _throwingVelocity);
+                    hookTime += Time.deltaTime;
+                }
             }
-            
+            else if (hookTime > 4f)
+            {
+                start = false;
+                hookTime = -0.1f;
+            }
+
             if (_hook.Hooked)
             {
                 foreach (IXRSelectInteractor interactor in _cane.interactorsSelecting)
@@ -61,11 +83,9 @@ public class FishingCane : MonoBehaviour
 
                 break;
             }
-                
+
             yield return null;
         }
-
-        _hook.StopThrow();
 
         _lastPos = _throwingPos.position;
 
