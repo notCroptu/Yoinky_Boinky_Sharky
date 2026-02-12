@@ -1192,10 +1192,23 @@ MonoBehaviour:
   _bellyRotation: {fileID: 574907363}
   _minScale: {x: 1, y: 0.8, z: 1}
   _maxScale: {x: 4.5, y: 3.5, z: 6}
-  _scalingAmount: 0.2
+  _scalingAmount: 0.16
+  _diminishingVel: 0.1
+  _dieCanvas: {fileID: 0}
+  _dieText: {fileID: 0}
+  _dieStarve: 
+  _dieExplode: 
   _cameraInfluence: 0.8
   _camera: {fileID: 1414657270}
   _forward: {fileID: 415111404}
+  _blood: {fileID: 1896433216}
+  _bellySounds: []
+  _starveSounds: []
+  _explodeSounds: []
+  _source: {fileID: 0}
+  _onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!145 &965374716
 SpringJoint:
   m_ObjectHideFlags: 0
@@ -2094,6 +2107,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1896433216 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4876932774980241963, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 462321257}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2024513810 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1066765116487773078, guid: dc3995b6e9e650f43b97157ca2f7861f, type: 3}
@@ -2308,6 +2326,7 @@ GameObject:
   - component: {fileID: 2141222120}
   - component: {fileID: 2141222121}
   - component: {fileID: 2141222122}
+  - component: {fileID: 2141222123}
   m_Layer: 0
   m_Name: FisherMan Object
   m_TagString: Untagged
@@ -2382,6 +2401,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 19604180750169244a22cd08c3069cd1, type: 3}
   - {fileID: 8300000, guid: d2b8f2f95eebfcf41a3f13bdddaa87b5, type: 3}
   _pullSource: {fileID: 4769098101085723769}
+  _newFishSounds:
+  - {fileID: 8300000, guid: ad93c7ac2ea1e2e4c9fb401c509e4c07, type: 3}
+  _newFishSource: {fileID: 2141222123}
   amplitude: 4
   speed1: 1
   speed2: 0.7
@@ -2407,6 +2429,103 @@ BoxCollider:
   m_Size: {x: 5, y: 4, z: 16}
   m_Center: {x: 0, y: 2, z: 0}
 --- !u!82 &2141222122
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141222118}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &2141222123
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

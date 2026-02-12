@@ -42,6 +42,8 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private AudioSource _fallSource;
     [SerializeField] private AudioClip[] _pullSounds;
     [SerializeField] private AudioSource _pullSource;
+    [SerializeField] private AudioClip[] _newFishSounds;
+    [SerializeField] private AudioSource _newFishSource;
 
     private void Awake()
     {
@@ -355,6 +357,8 @@ public class Fisherman : MonoBehaviour
 
     private void ChooseNewLocation()
     {
+        Sound.PlaySound(_newFishSource, _newFishSounds);
+
         Vector3 newPos = _origin.position
             + new Vector3(
                 (Random.value * 2 - 1f) * _radius * 2,

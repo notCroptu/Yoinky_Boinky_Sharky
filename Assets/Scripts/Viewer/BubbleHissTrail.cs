@@ -40,7 +40,7 @@ public class BubbleHissTrail : MonoBehaviour
 
         // make new color alpha vary by lerping with speed
         float rate = Mathf.InverseLerp(_speeds.x, _speeds.y, speed);
-        Debug.Log("Rate: " + rate);
+        // Debug.Log("Rate: " + rate);
 
         _module.rateOverTime = Mathf.Lerp(_rateOverTime.x, _rateOverTime.y, rate);
         UpdateVolume();
