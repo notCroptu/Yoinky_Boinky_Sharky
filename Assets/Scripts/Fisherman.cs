@@ -40,6 +40,8 @@ public class Fisherman : MonoBehaviour
     [SerializeField][Range(0f, 1f)] private float _possibility = 0.2f;
     [SerializeField] private AudioClip[] _fallsounds;
     [SerializeField] private AudioSource _fallSource;
+    [SerializeField] private AudioClip[] _pullSounds;
+    [SerializeField] private AudioSource _pullSource;
 
     private void Awake()
     {
@@ -129,19 +131,18 @@ public class Fisherman : MonoBehaviour
 
             if (_midPointBlend <= 0.05f)
             {
-                if (controllerInteractor != null)
-                    controllerInteractor.SendHapticImpulse(0.8f, 0.2f);
-
                 Vector3 worldDis = _hookTransform.position - _lastPos;
+
+                if (controllerInteractor != null)
+                    controllerInteractor.SendHapticImpulse(Mathf.Clamp(worldDis.magnitude, 0.5f, 1f), 0.2f);
 
                 float pullAmount = Vector3.Dot(worldDis, -_playerTransform.up);
 
                 Debug.Log("Pulling with NOT enough force of: " + worldDis.magnitude + " pullAmount: " + pullAmount);
 
-                if (pullAmount > 0f)
+                if (pullAmount > 0f && worldDis.magnitude >= _triggeringDistance/2)
                 {
-                    if (controllerInteractor != null)
-                        controllerInteractor.SendHapticImpulse(Mathf.Max(0.4f, worldDis.magnitude), 0.2f);
+                    Sound.PlaySound(_pullSource, _pullSounds);
 
                     if (worldDis.magnitude >= _triggeringDistance)
                     {
@@ -159,6 +160,18 @@ public class Fisherman : MonoBehaviour
         }
 
         DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
+    }
+
+    [Button]
+    public void DoUnoPull()
+    {
+        Sound.PlaySound(_pullSource, _pullSounds);
+
+        if (Random.value < 0.3f)
+        {
+            ReleaseHook();
+            ReverseFished(Vector3.down);
+        }
     }
 
     /*private void ReleaseHook()
@@ -227,8 +240,6 @@ public class Fisherman : MonoBehaviour
         }
     }
 
-    [Button]
-    public void ReverseFish() => ReverseFished(Random.insideUnitSphere);
     public void ReverseFished(Vector3 direction)
     {
         Debug.Log("Reverse Fishing!");

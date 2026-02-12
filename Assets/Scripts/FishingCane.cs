@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
-using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
@@ -17,6 +16,11 @@ public class FishingCane : MonoBehaviour
     [SerializeField] private XRGrabInteractable _cane;
     [SerializeField][Range(0f, 1f)] private float _neededValueToPull = 0.6f;
     [SerializeField][Min(0f)] private float _triggeringDistance = 0.6f;
+    [SerializeField] private AudioClip[] _pullSounds;
+    [SerializeField] private AudioSource _pullSource;
+    [SerializeField] private AudioClip[] _wooshSounds;
+    [SerializeField] private AudioSource _wooshSource;
+    [SerializeField] private AudioSource _reelSource;
 
     private void Start()
     {
@@ -77,9 +81,12 @@ public class FishingCane : MonoBehaviour
             if (_wheel.value > _neededValueToPull)
             {
                 Vector3 dis = _throwingPos.position - _lastPos;
+                Sound.PlaySound(_pullSource, _pullSounds);
 
                 if (dis.magnitude >= _triggeringDistance)
                 {
+                    Sound.PlaySound(_wooshSource, _wooshSounds);
+
                     _hook.PullHook(dis);
                     Debug.Log("Pulled with enough force. ");
 
@@ -92,11 +99,21 @@ public class FishingCane : MonoBehaviour
             }
 
             _lastPos = _throwingPos.position;
-            _wheel.value -= Time.deltaTime;
+            _wheel.value -= Time.deltaTime * _wheelVelocity;
             _wheel.value = Mathf.Max(_wheel.value, 0f);
 
             yield return null;
         }
+    }
+
+    [SerializeField] private float _wheelVelocity = 1f;
+    private float lastWheelValue = 0f;
+    private void Update()
+    {
+        float wheelVelocity = Mathf.Abs(_wheel.value - lastWheelValue);
+        _reelSource.volume = Mathf.Clamp01(wheelVelocity * 10f);
+
+        lastWheelValue = _wheel.value;
     }
 
     [SerializeField] private Transform _startPoint;
