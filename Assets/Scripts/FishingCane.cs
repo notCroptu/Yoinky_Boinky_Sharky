@@ -46,28 +46,20 @@ public class FishingCane : MonoBehaviour
         bool start = false;
         Vector3 initAngle = _fishingCaneForward.forward;
 
+        Vector3 lastPos = _throwingPos.position;
+
         while (true)
         {
-            float angle = Vector3.Angle(_hook.Velocity, initAngle);
+            Vector3 worldDis = _throwingPos.position - lastPos;
+            float pullAmount = Vector3.Dot(worldDis, _fishingCaneForward.forward);
 
-            Debug.DrawRay(transform.position, _hook.Velocity, Color.red);
-            Debug.DrawRay(transform.position, initAngle, Color.green);
-
-            if (angle < _angleThreshold && _hook.Velocity.magnitude > _velocityThreshold)
+            if (pullAmount < 0f &&  worldDis.magnitude > _velocityThreshold)
             {
-                if (start == false)
-                {
-                    initAngle = _fishingCaneForward.forward;
-                    start = true;
-                }
-
-                Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
+                Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude );
                 _hook.ThrowHook(_fishingCaneForward.forward * _throwingVelocity);
             }
-            else
+            else if (pullAmount > 0.1f)
             {
-                initAngle = _fishingCaneForward.forward;
-                start = false;
                 _hook.GoLine();
             }
 
@@ -83,10 +75,14 @@ public class FishingCane : MonoBehaviour
                 break;
             }
 
+            lastPos = _throwingPos.position;
+
             yield return null;
         }
 
-        Vector3 lastPos = _throwingPos.position;
+        lastPos = _throwingPos.position;
+
+        _wheel.value = 0.5f;
 
         while (true)
         {
@@ -131,9 +127,31 @@ public class FishingCane : MonoBehaviour
 
             lastPos = _throwingPos.position;
             _wheel.value -= Time.deltaTime * _wheelVelocity;
+
+            if (_wheel.value < 0f)
+            {
+                ReleaseHook();
+                break;
+            }
+
             _wheel.value = Mathf.Max(_wheel.value, 0f);
 
             yield return null;
+        }
+    }
+
+    private void ReleaseHook()
+    {
+        if (_cane == null) return;
+
+        if (_cane.isSelected)
+        {
+            IXRSelectInteractor interactor = _cane.firstInteractorSelecting;
+            if (interactor != null)
+            {
+                _cane.interactionManager.SelectExit(interactor, _cane);
+                Debug.Log("Cane forcibly released!");
+            }
         }
     }
 

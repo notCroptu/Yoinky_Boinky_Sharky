@@ -167,6 +167,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4769098102207602865, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_AttachTransform
+      value: 
+      objectReference: {fileID: 1362732410184333313}
+    - target: {fileID: 4769098102207602865, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_PredictedVisualsTransform
       value: 
       objectReference: {fileID: 671253776247987651}
