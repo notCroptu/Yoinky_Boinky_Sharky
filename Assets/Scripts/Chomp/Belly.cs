@@ -12,6 +12,7 @@ public class Belly : MonoBehaviour
     [SerializeField] private Vector3 _minScale = new(0.5f, 0.3f, 0.5f);
     [SerializeField] private Vector3 _maxScale = new(1.5f, 0.9f, 1.5f);
     [SerializeField] private float _scalingAmount = 0.2f;
+    [SerializeField] private float _hungyTime = 60f;
     private float _current = 0.4f;
     [SerializeField] private float _diminishingVel = 0.2f;
 
@@ -103,7 +104,7 @@ public class Belly : MonoBehaviour
 
     private IEnumerator Starve()
     {
-        float time = 40f;
+        float time = _hungyTime;
         while (time > 0f)
         {
             if (_current > 0.01f)
@@ -113,7 +114,7 @@ public class Belly : MonoBehaviour
                 yield break;
             }
 
-            if (!_source.isPlaying && Random.value > Mathf.Lerp(0.98f, 1f, Mathf.InverseLerp(0f, 40f, time)))
+            if (!_source.isPlaying && Random.value > Mathf.Lerp(0.98f, 1f, Mathf.InverseLerp(0f, _hungyTime, time)))
             {
                 Sound.PlaySound(_source, _bellySounds);
             }

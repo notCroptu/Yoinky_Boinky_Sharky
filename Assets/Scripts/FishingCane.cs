@@ -43,9 +43,6 @@ public class FishingCane : MonoBehaviour
     {
         XRBaseInputInteractor controllerInteractor = _cane.firstInteractorSelecting as XRBaseInputInteractor;
 
-        bool start = false;
-        Vector3 initAngle = _fishingCaneForward.forward;
-
         Vector3 lastPos = _throwingPos.position;
 
         while (true)
