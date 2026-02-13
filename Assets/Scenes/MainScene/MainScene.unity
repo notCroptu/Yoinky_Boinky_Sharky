@@ -2569,6 +2569,9 @@ MonoBehaviour:
   _triggeringDistance: 0.9
   FishermanPrefabs:
   - {fileID: 4578448595113200552, guid: daf32fe9dee1e034f92572b7a9a805f2, type: 3}
+  - {fileID: 4364529666353878437, guid: 3a0bec61110a1654b897d0c51d68dea2, type: 3}
+  - {fileID: 1724649827512203996, guid: 9471f3b2ae595424daa18da61d646c22, type: 3}
+  - {fileID: 7674912973049733462, guid: 3a9891257acbebc469f7551e11a6c682, type: 3}
   _initializeFisherAtATime: 4
   _fisherPool: {fileID: 226766406}
   _fisherPoolOn: {fileID: 752031704}
