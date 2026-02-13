@@ -455,7 +455,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MenuButton",
+                    "name": "Pause",
                     "type": "Button",
                     "id": "281c8f70-0ba4-48a6-a32d-5dda4f20f12b",
                     "expectedControlType": "",
@@ -888,7 +888,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MenuButton",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -899,7 +899,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MenuButton",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -910,7 +910,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MenuButton",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7dc64b6e-70f5-437a-a24e-6884c166b862",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

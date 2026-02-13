@@ -1,5 +1,8 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class Hook : MonoBehaviour
 {
@@ -7,6 +10,7 @@ public class Hook : MonoBehaviour
     [SerializeField] private SpringJoint _joint;
     [SerializeField] private Vector2 _normalSpringHamper;
     [SerializeField] private Vector2 _HoldSpringHamper;
+    [SerializeField] private XRGrabInteractable _cane;
     [SerializeField] private float _ifFartherThan = 20f;
     private Rigidbody targetBody;
     public Vector3 Velocity => _rigidbody.linearVelocity;
@@ -15,26 +19,37 @@ public class Hook : MonoBehaviour
     private Vector3 _originalPos;
     public bool Hooked => _rigidbody.isKinematic;
 
-    [SerializeField]
-    XRInputValueReader<float> _triggerAction = new XRInputValueReader<float>("trigger");
-    private void Update()
+    private void OnEnable()
     {
-        // if holdtrigger button xr then change to holdspringhamper, otherwise use normalspringhamper
-        if (!_active) return;
-        if (_triggerAction == null) return;
+        _active = true;
+        ConnectBody();
 
-        bool isHolding = _triggerAction.ReadValue() > 0.5f;
+        _cane.activated.AddListener(OnActivate);
+        _cane.deactivated.AddListener(OnDeactivate);
+    }
 
-        if (isHolding)
-        {
-            _joint.spring = _HoldSpringHamper.x;
-            _joint.damper = _HoldSpringHamper.y;
-        }
-        else
-        {
-            _joint.spring = _normalSpringHamper.x;
-            _joint.damper = _normalSpringHamper.y;
-        }
+    private void OnDisable()
+    {
+        _rigidbody.isKinematic = false;
+        _active = false;
+        transform.localPosition = _originalPos;
+        ConnectBody();
+
+        _cane.activated.RemoveListener(OnActivate);
+        _cane.deactivated.RemoveListener(OnDeactivate);
+    }
+    
+    private void OnActivate(ActivateEventArgs args)
+    {
+        Debug.Log("HOOKING!!!");
+        _joint.spring = _HoldSpringHamper.x;
+        _joint.damper = _HoldSpringHamper.y;
+    }
+
+    private void OnDeactivate(DeactivateEventArgs args)
+    {
+        _joint.spring = _normalSpringHamper.x;
+        _joint.damper = _normalSpringHamper.y;
     }
 
     private void Awake()
@@ -47,21 +62,6 @@ public class Hook : MonoBehaviour
     {
         targetBody = _joint.connectedBody;
     }
-
-    private void OnEnable()
-    {
-        _active = true;
-        ConnectBody();
-    }
-
-    private void OnDisable()
-    {
-        _rigidbody.isKinematic = false;
-        _active = false;
-        transform.localPosition = _originalPos;
-        ConnectBody();
-    }
-
     public void HookHook()
     {
         _rigidbody.isKinematic = true;

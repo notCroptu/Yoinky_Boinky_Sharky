@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs.Readers;
 public class Pause : MonoBehaviour
 {
     [SerializeField] private GameObject _pause;
-    [SerializeField] private XRInputValueReader<bool> button = new XRInputValueReader<bool>("<XRController>{LeftHand}/primaryButton");
+    [SerializeField]  private XRInputValueReader<bool> button;
 
     private bool wasPressed = false;
 
@@ -19,6 +19,8 @@ public class Pause : MonoBehaviour
 
         _pause.SetActive(false);
         button.EnableDirectActionIfModeUsed();
+        button.inputAction.Enable();
+
     }
 
     void OnDisable()
@@ -30,10 +32,11 @@ public class Pause : MonoBehaviour
     {
         if (button == null) return;
 
-        bool isPressed = button.ReadValue();
+        bool isPressed = button.inputAction.IsPressed();
 
         if (isPressed && !wasPressed)
         {
+            Debug.Log("PAUSED!!");
             _pause.SetActive(!_pause.activeSelf);
         }
 
