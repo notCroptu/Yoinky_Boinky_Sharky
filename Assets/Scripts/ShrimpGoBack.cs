@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class ShrimpGoBack : MonoBehaviour
@@ -16,6 +17,7 @@ public class ShrimpGoBack : MonoBehaviour
         _initRot = transform.rotation;
     }
 
+    [Button]
     public void GoBack()
     {
         if (_cor != null)
@@ -28,10 +30,10 @@ public class ShrimpGoBack : MonoBehaviour
         yield return new WaitForSeconds(_goBackAfterSeconds);
 
         _rigidbody.isKinematic = true;
-        DOTween.To(() => transform.position, x => transform.position = x, _initPos, 3f).SetEase(Ease.InBounce);
-        transform.rotation = _initRot;
+        DOTween.To(() => transform.position, x => transform.position = x, _initPos, 2f).SetEase(Ease.InOutElastic);
+        transform.DORotateQuaternion(_initRot, 2f).SetEase(Ease.InOutElastic);
 
-        yield return new WaitForSeconds(3.2f);
+        yield return new WaitForSeconds(2.2f);
 
         _rigidbody.isKinematic = false;
     }

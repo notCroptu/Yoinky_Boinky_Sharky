@@ -41,15 +41,15 @@ public class FishingCane : MonoBehaviour
     {
         _lastPos = _throwingPos.position;
 
-        float hookTime = 0f;
         bool start = false;
         Vector3 initAngle = _fishingCaneForward.forward;
 
         while (true)
         {
-            if (hookTime < 0f)
-                initAngle = _fishingCaneForward.forward;
             float angle = Vector3.Angle(_hook.Velocity, initAngle);
+
+            Debug.DrawRay(transform.position, _hook.Velocity, Color.red);
+            Debug.DrawRay(transform.position, initAngle, Color.green);
 
             if (angle < _angleThreshold && _hook.Velocity.magnitude > _velocityThreshold)
             {
@@ -59,17 +59,14 @@ public class FishingCane : MonoBehaviour
                     start = true;
                 }
 
-                if (hookTime < 4f)
-                {
-                    Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
-                    _hook.ThrowHook(_fishingCaneForward.forward * _throwingVelocity);
-                    hookTime += Time.deltaTime;
-                }
+                Debug.Log("Pushed hook when magnitude was: " + _hook.Velocity.magnitude + " and angle was: " + angle);
+                _hook.ThrowHook(_fishingCaneForward.forward * _throwingVelocity);
             }
-            else if (hookTime > 4f)
+            else
             {
+                initAngle = _fishingCaneForward.forward;
                 start = false;
-                hookTime = -0.1f;
+                _hook.GoLine();
             }
 
             if (_hook.Hooked)

@@ -35,9 +35,9 @@ public class Chomp : MonoBehaviour
         bool movingOpposite = leftDeltaY * rightDeltaY < 0;
         bool movingFastEnough = (Mathf.Abs(leftDeltaY) + Mathf.Abs(rightDeltaY)) > _speedThreshold;
 
-        if ( horizontalDistance < _horizontalTolerance || verticalDistance < _chompDistance || movingOpposite || movingFastEnough)
-            Debug.Log("In corrrect X: " + (horizontalDistance < _horizontalTolerance) + " In correct Y: " + (verticalDistance < _chompDistance) + " vertical y: " + verticalDistance + " moving opp: " + movingOpposite + " fast enough: " + movingFastEnough + " with vel: " + (Mathf.Abs(leftDeltaY) + Mathf.Abs(rightDeltaY)) +  " would win: " + (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance && movingOpposite && movingFastEnough));
-
+        if (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance)
+            Target();
+        
         if (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance && movingOpposite && movingFastEnough)
             TryEatTarget();
         else if (verticalDistance > _resetDistance)
@@ -50,18 +50,30 @@ public class Chomp : MonoBehaviour
     [SerializeField] private SimpleHapticFeedback _leftHap;
     [SerializeField] private SimpleHapticFeedback _rightHap;
 
+    private void Target()
+    {
+        Vector3 midway = (_leftController.forward.normalized + _rightController.forward.normalized).normalized;
+        Vector3 position = (_leftController.position + _rightController.position) / 2f;
+
+        position -= midway.normalized * 0.2f;
+        _hitLol = Physics.SphereCast(position, 0.2f, midway, out _hit, _rayDistance, _targetLayer);
+
+        if (_hitLol)
+        {
+            _leftHap.hapticImpulsePlayer.SendHapticImpulse(0.2f, 0.2f);
+            _rightHap.hapticImpulsePlayer.SendHapticImpulse(0.2f, 0.2f);
+        }
+    }
+
+    private RaycastHit _hit;
+    private bool _hitLol = false;
     private void TryEatTarget()
     {
         isChomping = true;
 
-        Vector3 midway = (_leftController.forward.normalized + _rightController.forward.normalized).normalized;
-        Vector3 position = (_leftController.position + _rightController.position)/2f;
-
-        position -= midway.normalized * 0.2f;
-
-        if (Physics.SphereCast(position, 0.2f, midway, out RaycastHit hit, _rayDistance, _targetLayer))
+        if (_hitLol)
         {
-            Member member = hit.collider.GetComponent<Member>();
+            Member member = _hit.collider.GetComponent<Member>();
             if (member != null)
             {
                 _leftHap.hapticImpulsePlayer.SendHapticImpulse(1f, 0.6f);
