@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Spine : Member
 {
-    [SerializeField] protected MeshRenderer _mesh;
+    [SerializeField] protected GameObject _mesh;
     [SerializeField] protected GameObject _fishermin;
     [SerializeField] protected GameObject _painFace;
     [SerializeField] protected GameObject _death;
@@ -26,7 +26,7 @@ public class Spine : Member
         _death.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        _mesh.enabled = false;
+        _mesh.SetActive(false);
 
         Destroy(_fishermin);
     }

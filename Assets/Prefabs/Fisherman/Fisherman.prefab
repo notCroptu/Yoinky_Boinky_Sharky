@@ -7000,6 +7000,7 @@ MonoBehaviour:
   _screamSounds:
   - {fileID: 8300000, guid: 0f5376426c65f9a41910d9eacb2439c7, type: 3}
   _screamSource: {fileID: 1891255108941247169}
+  _mesh: {fileID: 145165840698567646}
   _fishermin: {fileID: 4578448595113200552}
   _painFace: {fileID: 6467448679745346384}
   _death: {fileID: 5239023984011030123}
