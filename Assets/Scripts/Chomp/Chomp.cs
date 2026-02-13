@@ -7,7 +7,6 @@ public class Chomp : MonoBehaviour
     [SerializeField] private Transform _leftController;
     [SerializeField] private Transform _rightController;
 
-    [SerializeField] private float _resetDistance = 0.8f;
     [SerializeField] private float _chompDistance = 0.3f;
     [SerializeField] private float _speedThreshold = 0.3f;
     [SerializeField] private LayerMask _targetLayer;
@@ -35,12 +34,12 @@ public class Chomp : MonoBehaviour
         bool movingOpposite = leftDeltaY * rightDeltaY < 0;
         bool movingFastEnough = (Mathf.Abs(leftDeltaY) + Mathf.Abs(rightDeltaY)) > _speedThreshold;
 
-        if (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance)
+        if (!isChomping && horizontalDistance < _horizontalTolerance)
             Target();
         
         if (!isChomping && horizontalDistance < _horizontalTolerance && verticalDistance < _chompDistance && movingOpposite && movingFastEnough)
             TryEatTarget();
-        else if (verticalDistance > _resetDistance)
+        else if (verticalDistance > _chompDistance || horizontalDistance > _horizontalTolerance || !movingOpposite)
             isChomping = false;
 
         _prevLeftPos = _leftController.position;
