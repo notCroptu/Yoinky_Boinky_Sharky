@@ -81,6 +81,10 @@ public class Hook : MonoBehaviour
 
     public void ThrowHook(Vector3 velocity)
     {
+        Vector3 vel = Vector3.Project(_rigidbody.linearVelocity, velocity.normalized);
+        _rigidbody.AddForce(-vel, ForceMode.Force);
+
+        Debug.DrawRay(_rigidbody.position, velocity, Color.pink, 10f);
         _rigidbody.AddForce(velocity, ForceMode.Force);
 
         if (_ifFartherThan < Vector3.Distance(targetBody.position, transform.position))
