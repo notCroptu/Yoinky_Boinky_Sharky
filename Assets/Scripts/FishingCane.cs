@@ -1,4 +1,5 @@
 using System.Collections;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -28,6 +29,8 @@ public class FishingCane : MonoBehaviour
     }
 
     private Coroutine _cor;
+
+    [Button]
     public void PickUp()
     {
         _hook.enabled = true;
@@ -36,10 +39,9 @@ public class FishingCane : MonoBehaviour
         _cor = StartCoroutine(ThrowHook());
     }
 
-    private Vector3 _lastPos;
     private IEnumerator ThrowHook()
     {
-        _lastPos = _throwingPos.position;
+        XRBaseInputInteractor controllerInteractor = _cane.firstInteractorSelecting as XRBaseInputInteractor;
 
         bool start = false;
         Vector3 initAngle = _fishingCaneForward.forward;
@@ -73,9 +75,9 @@ public class FishingCane : MonoBehaviour
             {
                 foreach (IXRSelectInteractor interactor in _cane.interactorsSelecting)
                 {
-                    XRBaseInputInteractor controllerInteractor = interactor as XRBaseInputInteractor;
-                    if (controllerInteractor != null)
-                        controllerInteractor.SendHapticImpulse(1f, 0.4f);
+                    XRBaseInputInteractor ctrl = interactor as XRBaseInputInteractor;
+                    if (ctrl != null)
+                        ctrl.SendHapticImpulse(1f, 0.4f);
                 }
 
                 break;
@@ -84,38 +86,50 @@ public class FishingCane : MonoBehaviour
             yield return null;
         }
 
-        _lastPos = _throwingPos.position;
+        Vector3 lastPos = _throwingPos.position;
 
         while (true)
         {
             foreach (IXRSelectInteractor interactor in _wheel.interactorsSelecting)
             {
-                XRBaseInputInteractor controllerInteractor = interactor as XRBaseInputInteractor;
-                if (controllerInteractor != null)
-                    controllerInteractor.SendHapticImpulse(_wheel.value, 0.2f);
+                XRBaseInputInteractor ctrl = interactor as XRBaseInputInteractor;
+                if (ctrl != null)
+                    ctrl.SendHapticImpulse(_wheel.value, 0.2f);
             }
 
             if (_wheel.value > _neededValueToPull)
             {
-                Vector3 dis = _throwingPos.position - _lastPos;
-                Sound.PlaySound(_pullSource, _pullSounds);
+                Vector3 worldDis = _throwingPos.position - lastPos;
+                Vector3 direction = _throwingPos.position - _hook.transform.position;
 
-                if (dis.magnitude >= _triggeringDistance)
+                if (controllerInteractor != null)
+                    controllerInteractor.SendHapticImpulse(Mathf.Clamp(worldDis.magnitude, 0.5f, 1f), 0.2f);
+
+                float pullAmount = Vector3.Dot(worldDis, direction);
+
+                Debug.Log("Pulling with NOT enough force of: " + worldDis.magnitude + " pullAmount: " + pullAmount);
+
+                if (pullAmount > 0f && worldDis.magnitude >= _triggeringDistance/2)
                 {
-                    Sound.PlaySound(_wooshSource, _wooshSounds);
+                    Sound.PlaySound(_pullSource, _pullSounds);
 
-                    _hook.PullHook(dis);
-                    Debug.Log("Pulled with enough force. ");
+                    if (worldDis.magnitude >= _triggeringDistance)
+                    {
+                        Debug.Log("Pulling with enough force of: " + worldDis.magnitude + " pullAmount: " + pullAmount);
+                        Sound.PlaySound(_wooshSource, _wooshSounds);
 
-                    XRBaseInputInteractor controllerInteractor = _cane.firstInteractorSelecting as XRBaseInputInteractor;
-                    if (controllerInteractor != null)
-                        controllerInteractor.SendHapticImpulse(1f, 0.4f);
+                        _hook.PullHook(worldDis);
+                        Debug.Log("Pulled with enough force. ");
 
-                    break;
+                        if (controllerInteractor != null)
+                            controllerInteractor.SendHapticImpulse(1f, 0.4f);
+
+                        break;
+                    }
                 }
             }
 
-            _lastPos = _throwingPos.position;
+            lastPos = _throwingPos.position;
             _wheel.value -= Time.deltaTime * _wheelVelocity;
             _wheel.value = Mathf.Max(_wheel.value, 0f);
 
