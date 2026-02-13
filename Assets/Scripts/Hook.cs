@@ -8,6 +8,8 @@ public class Hook : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private SpringJoint _joint;
+    [SerializeField] private Vector2 _normalLinearAngular;
+    [SerializeField] private Vector2 _HoldLinearAngular;
     [SerializeField] private Vector2 _normalSpringHamper;
     [SerializeField] private Vector2 _HoldSpringHamper;
     [SerializeField] private XRGrabInteractable _cane;
@@ -44,12 +46,16 @@ public class Hook : MonoBehaviour
         Debug.Log("HOOKING!!!");
         _joint.spring = _HoldSpringHamper.x;
         _joint.damper = _HoldSpringHamper.y;
+        _rigidbody.linearDamping = _HoldLinearAngular.x;
+        _rigidbody.angularDamping = _HoldLinearAngular.y;
     }
 
     private void OnDeactivate(DeactivateEventArgs args)
     {
         _joint.spring = _normalSpringHamper.x;
         _joint.damper = _normalSpringHamper.y;
+        _rigidbody.linearDamping = _normalLinearAngular.x;
+        _rigidbody.angularDamping = _normalLinearAngular.y;
     }
 
     private void Awake()
