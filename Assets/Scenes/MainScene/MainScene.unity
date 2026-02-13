@@ -208,6 +208,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -263,6 +267,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -677,6 +701,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -732,6 +760,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -1461,6 +1509,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1517,6 +1569,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bollita Variant (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1544,6 +1616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -1599,6 +1675,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -2187,6 +2283,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 107308343}
     m_Modifications:
+    - target: {fileID: 2363724026906591651, guid: c0848666ad5025e44ac6753eae82dbfa, type: 3}
+      propertyPath: m_text
+      value: 's''hello
+
+        there!'
+      objectReference: {fileID: 0}
     - target: {fileID: 4669742270621605610, guid: c0848666ad5025e44ac6753eae82dbfa, type: 3}
       propertyPath: m_SizeDelta.x
       value: 6.5
@@ -2416,7 +2518,8 @@ MonoBehaviour:
   _minScale: {x: 1, y: 0.8, z: 1}
   _maxScale: {x: 3.6, y: 2.8, z: 4.8}
   _scalingAmount: 0.3
-  _diminishingVel: 0.1
+  _hungyTime: 60
+  _diminishingVel: 0.005
   _dieCanvas: {fileID: 707930068}
   _dieText: {fileID: 40810901}
   _camera: {fileID: 1414657270}
@@ -2639,6 +2742,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2695,6 +2802,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bollita Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -2731,6 +2858,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 18325779156787514, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147198477532168627, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 151738567622051705, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1362732410184333313, guid: de8697b67e5a764479eab667b66441f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -2786,6 +2925,22 @@ PrefabInstance:
     - target: {fileID: 1362732410184333314, guid: de8697b67e5a764479eab667b66441f8, type: 3}
       propertyPath: m_Name
       value: Cue Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362732410184333314, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881337200644278152, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503476742784995824, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474044181219784836, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2977,6 +3132,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3032,6 +3191,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3150,6 +3329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3205,6 +3388,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -3620,6 +3823,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -3675,6 +3882,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -4389,6 +4616,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4444,6 +4675,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -4713,6 +4964,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4769,6 +5024,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bollita Variant (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6729749876838462734, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -4791,6 +5066,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 18325779156787514, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 147198477532168627, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 151738567622051705, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1362732410184333313, guid: de8697b67e5a764479eab667b66441f8, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -4846,6 +5133,22 @@ PrefabInstance:
     - target: {fileID: 1362732410184333314, guid: de8697b67e5a764479eab667b66441f8, type: 3}
       propertyPath: m_Name
       value: Cue Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1362732410184333314, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2881337200644278152, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6503476742784995824, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474044181219784836, guid: de8697b67e5a764479eab667b66441f8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5217,6 +5520,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1599539172}
     m_Modifications:
+    - target: {fileID: 1809378458858073264, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3173279738496881465, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -5272,6 +5579,26 @@ PrefabInstance:
     - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
       propertyPath: m_Name
       value: Bollita Variant (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173279738496881466, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389409608732994187, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4513099162050398722, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5438517375818126268, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170440061204027032, guid: b67816b9ea5b2754c85f58e019c6d6ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5834,8 +6161,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bobber
       objectReference: {fileID: 0}
+    - target: {fileID: 671080875656466882, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 671080875656466887, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1852027643503159411, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2015455782042224890, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343120970571607624, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4951172206964778337, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
@@ -5843,6 +6186,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363106891199683967, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935508711843238212, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -5914,6 +6261,38 @@ PrefabInstance:
     - target: {fileID: 417840405870291803, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
       propertyPath: m_Name
       value: Triangulo
+      objectReference: {fileID: 0}
+    - target: {fileID: 417840405870291803, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178393854404673857, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526692196681405162, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3519988214297498833, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076555379884824071, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6037677812874851780, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6205159903002950750, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7114781428777544669, guid: 61108fa9feb6f40448e375b20821041b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
