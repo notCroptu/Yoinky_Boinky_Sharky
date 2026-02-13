@@ -601,7 +601,7 @@ PrefabInstance:
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1586596989}
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -629,7 +629,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3308170122880742815, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1586596989}
   m_SourcePrefab: {fileID: 100100000, guid: fa22986cc7d239147af765581771fb88, type: 3}
 --- !u!224 &414105722 stripped
 RectTransform:
@@ -1308,6 +1311,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6829900119748546981, guid: a7afce08bcc98744caf685ddddd72fe3, type: 3}
   m_PrefabInstance: {fileID: 704542632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &707930068 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4015128326712939855, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
+  m_PrefabInstance: {fileID: 1560942620}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &731587590
 GameObject:
@@ -2140,8 +2148,8 @@ MonoBehaviour:
   _maxScale: {x: 3.6, y: 2.8, z: 4.8}
   _scalingAmount: 0.3
   _diminishingVel: 0.1
-  _dieCanvas: {fileID: 0}
-  _dieText: {fileID: 0}
+  _dieCanvas: {fileID: 707930068}
+  _dieText: {fileID: 40810901}
   _camera: {fileID: 1414657270}
   _forward: {fileID: 415111404}
   _blood: {fileID: 1896433216}
@@ -2909,7 +2917,7 @@ PrefabInstance:
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1443477464}
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3837,7 +3845,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 3347311276327707478, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
     - {fileID: 680675644964572287, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5849765080480587857, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
+    - {fileID: 8180815009888545692, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
+    - {fileID: 4422659091188657046, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4015128326712939851, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
       insertIndex: -1
@@ -3869,6 +3880,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+--- !u!1 &1586596983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308170122880742815, guid: fa22986cc7d239147af765581771fb88, type: 3}
+  m_PrefabInstance: {fileID: 414105721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1586596989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586596983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566685187edaab448b0ccdfa204b1b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Noottu.MenuSystem.Runtime::MainMenu
+  _menuCanvas: {fileID: 0}
+  _runtimePlaneDistance: 1
+  _overrideMode: 1
+  _gameScene: Menus
 --- !u!1 &1599539171
 GameObject:
   m_ObjectHideFlags: 0
