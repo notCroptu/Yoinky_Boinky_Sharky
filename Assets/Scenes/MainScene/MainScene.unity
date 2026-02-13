@@ -1414,7 +1414,11 @@ MonoBehaviour:
   _camera: {fileID: 1414657270}
   _forward: {fileID: 415111404}
   _blood: {fileID: 1896433216}
-  _bellySounds: []
+  _bellySounds:
+  - {fileID: 8300000, guid: 0fd03afaa51d11347ab4e757f6a7264c, type: 3}
+  - {fileID: 8300000, guid: 5220aa0ccaec009488bd390cd4226387, type: 3}
+  - {fileID: 8300000, guid: 7316efb9fe1b23c48a460bafc754b54a, type: 3}
+  - {fileID: 8300000, guid: a30595a05fa7fba48b12bb4835da243a, type: 3}
   _starveSounds: []
   _explodeSounds:
   - {fileID: 8300000, guid: 73b1e72be6c8c994ba6e9c6cd40751d1, type: 3}
