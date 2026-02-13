@@ -114,7 +114,7 @@ public class Belly : MonoBehaviour
                 yield break;
             }
 
-            if (Random.value > Mathf.Lerp(0.6f, 0.95f, Mathf.InverseLerp(0f, 30f, time)))
+            if (Random.value > Mathf.Lerp(0.6f, 0.95f, Mathf.InverseLerp(0f, 40f, time)))
             {
                 Sound.PlaySound(_source, _starveSounds);
             }
