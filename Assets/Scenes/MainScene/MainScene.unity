@@ -784,10 +784,22 @@ PrefabInstance:
       propertyPath: m_GripInput.m_InputActionReference
       value: 
       objectReference: {fileID: 1425301208}
+    - target: {fileID: 195119828934995952, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 195119828934995952, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 562317430309586032, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_GripInput.m_InputActionReference
       value: 
       objectReference: {fileID: 953058740}
+    - target: {fileID: 774284269412263528, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: _brightness._postProcessWithGamma
+      value: 
+      objectReference: {fileID: 1562963255}
     - target: {fileID: 942810691211101373, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -840,6 +852,22 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1788385381}
+    - target: {fileID: 2852269080976538977, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852269080976538977, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715928529984252583, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4715928529984252583, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6678509202150728127, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -848,6 +876,14 @@ PrefabInstance:
       propertyPath: _belly
       value: 
       objectReference: {fileID: 965374715}
+    - target: {fileID: 9201182773761200121, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9201182773761200121, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1619,7 +1655,7 @@ AudioSource:
   m_GameObject: {fileID: 965374714}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -2315,6 +2351,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 216d1c0495d71194abd0336881f8b636, type: 3}
+--- !u!114 &1562963255 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4412794639214851848, guid: 216d1c0495d71194abd0336881f8b636, type: 3}
+  m_PrefabInstance: {fileID: 1562963254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
 --- !u!114 &1570246816 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3816358049546708346, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -2876,7 +2923,7 @@ AudioSource:
   m_GameObject: {fileID: 2141222118}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -2973,7 +3020,7 @@ AudioSource:
   m_GameObject: {fileID: 2141222118}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1

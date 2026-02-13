@@ -387,7 +387,7 @@ AudioSource:
   m_GameObject: {fileID: 1980409284844229465}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -484,7 +484,7 @@ AudioSource:
   m_GameObject: {fileID: 1980409284844229465}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -581,7 +581,7 @@ AudioSource:
   m_GameObject: {fileID: 1980409284844229465}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 62dc106e6e208a7479879702a4358f16, type: 3}
   m_PlayOnAwake: 1
@@ -1427,7 +1427,7 @@ AudioSource:
   m_GameObject: {fileID: 9203662682308814495}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 1d4ffba877e11574b83dd66ffe09c3e2, type: 3}
   m_PlayOnAwake: 0
@@ -1690,6 +1690,10 @@ PrefabInstance:
       propertyPath: m_Renderer
       value: 
       objectReference: {fileID: 7428246769315610209, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+    - target: {fileID: 7418283890583630820, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -4582309798142296451, guid: cbe1e4a8576472e42863435144e26d77, type: 2}
     - target: {fileID: 8045658999775328303, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_TransformToScale
       value: 
