@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6057856716412486442}
   - component: {fileID: 3095466117427830488}
   - component: {fileID: 6729749876838462734}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Bollita
   m_TagString: Untagged
   m_Icon: {fileID: 0}

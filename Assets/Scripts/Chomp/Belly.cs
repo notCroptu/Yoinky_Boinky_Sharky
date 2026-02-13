@@ -73,7 +73,6 @@ public class Belly : MonoBehaviour
     private IEnumerator DieCoroutine(bool explode)
     {
         _dieCanvas.SetActive(true);
-        _dieCanvas.SetActive(true);
         _dieText.text = explode ? _dieExplode : _dieStarve;
 
         if (explode)
@@ -121,7 +120,7 @@ public class Belly : MonoBehaviour
 
             Debug.Log("Starving! " + time);
 
-            time -= Time.timeScale;
+            time -= Time.deltaTime;
             yield return null;
         }
 
@@ -136,7 +135,7 @@ public class Belly : MonoBehaviour
         if (Dead) return;
         if (timer < 0f)
         {
-            _current -= _diminishingVel / 1000f * Time.timeScale;
+            _current -= _diminishingVel * Time.deltaTime;
 
             if (_starving == null && _current < 0f)
             {
@@ -147,7 +146,7 @@ public class Belly : MonoBehaviour
             _bellyScale.localScale = Vector3.Lerp(_minScale, _maxScale, _current);
         }
         else
-            timer -= Time.timeScale;
+            timer -= Time.deltaTime;
 
         if (_camera == null || _forward == null) return;
 
