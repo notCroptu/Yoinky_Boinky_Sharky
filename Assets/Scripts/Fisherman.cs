@@ -60,8 +60,6 @@ public class Fisherman : MonoBehaviour
         spline.SetTangentMode(1, TangentMode.AutoSmooth);
         spline.SetTangentMode(2, TangentMode.AutoSmooth);
         spline.SetTangentMode(3, TangentMode.AutoSmooth);
-
-        Application.targetFrameRate = 90;
     }
 
     private Quaternion _originalHookRot;
