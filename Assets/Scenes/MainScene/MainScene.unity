@@ -1316,11 +1316,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1767192439, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
   m_PrefabInstance: {fileID: 462321257}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &481762833 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1980409284844229465, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-  m_PrefabInstance: {fileID: 8676703070292704504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &481762840 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8794653777106302590, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
@@ -1331,7 +1326,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3678303945481171434, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
   m_PrefabInstance: {fileID: 8676703070292704504}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481762833}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
@@ -2646,7 +2641,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1291693061
 Transform:
   m_ObjectHideFlags: 0
@@ -2656,7 +2651,7 @@ Transform:
   m_GameObject: {fileID: 1291693060}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.56, z: 0}
+  m_LocalPosition: {x: 0, y: 24.45, z: 15.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5331,7 +5326,7 @@ MonoBehaviour:
   _initializeFisherAtATime: 4
   _fisherPool: {fileID: 226766406}
   _fisherPoolOn: {fileID: 752031704}
-  _fishingCane: {fileID: 481762833}
+  _fishingCane: {fileID: 1291693060}
   _pullingForce: 10
   _spawnRadius: 7
   _waitTime: 2.3
@@ -5701,6 +5696,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4723807741139925242, guid: 95106bfbdbdd411429f5572f6d80ed7f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3abb4d22d200cf94f9073b7d365f92c3, type: 2}
     - target: {fileID: 6927722803306723418, guid: 95106bfbdbdd411429f5572f6d80ed7f, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -5764,7 +5763,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 671080875656466881, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.02
+      value: 11.48
       objectReference: {fileID: 0}
     - target: {fileID: 671080875656466881, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5772,7 +5771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 671080875656466881, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.73
+      value: 14.18
       objectReference: {fileID: 0}
     - target: {fileID: 671080875656466881, guid: dc566a5ff6ea376478ebbbe2b06a9dc7, type: 3}
       propertyPath: m_LocalRotation.w

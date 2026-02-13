@@ -84,6 +84,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Triangulo Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_LinearDamping
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_AngularDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7428246769315610209, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -99,11 +107,44 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4769098102207602864, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
       insertIndex: 0
       addedObject: {fileID: 6377646105577516926}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4769098102207602867, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2752108584748028810}
   m_SourcePrefab: {fileID: 100100000, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
 --- !u!4 &417840405870291800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4769098102207602864, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+  m_PrefabInstance: {fileID: 5180066281229306856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &417840405870291803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4769098102207602867, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+  m_PrefabInstance: {fileID: 5180066281229306856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2752108584748028810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417840405870291803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63aed65e2cc3d4f42a0b0c3ba36feab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CalculateDamping
+  _rigidbody:
+  - {fileID: 417840405870291806}
+  _col: {fileID: 6739512848831471586}
+--- !u!54 &417840405870291806 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+  m_PrefabInstance: {fileID: 5180066281229306856}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &6739512848831471586 stripped
+MeshCollider:
+  m_CorrespondingSourceObject: {fileID: 1901862564025930762, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
   m_PrefabInstance: {fileID: 5180066281229306856}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6848649205760952469

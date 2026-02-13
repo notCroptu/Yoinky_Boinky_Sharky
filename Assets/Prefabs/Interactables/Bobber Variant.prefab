@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bobber Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4769098102207602870, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1901862564025930762, guid: 2ed984a58a974166bf92c82a74380454, type: 3}
     m_RemovedGameObjects:

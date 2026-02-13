@@ -447,7 +447,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67e6902c4656aa545baad0b4632334c3, type: 2}
+  - {fileID: 2100000, guid: 3abb4d22d200cf94f9073b7d365f92c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -538,6 +538,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 5092762524157873065}
   _joint: {fileID: 2067099063302368949}
+  _normalLinearAngular: {x: 0, y: 0}
+  _HoldLinearAngular: {x: 0, y: 0}
+  _normalSpringHamper: {x: 0, y: 0}
+  _HoldSpringHamper: {x: 0, y: 0}
+  _cane: {fileID: 0}
   _ifFartherThan: 20
 --- !u!54 &5092762524157873065
 Rigidbody:
@@ -822,6 +827,12 @@ MonoBehaviour:
   _cane: {fileID: 0}
   _neededValueToPull: 0.6
   _triggeringDistance: 0.6
+  _pullSounds: []
+  _pullSource: {fileID: 0}
+  _wooshSounds: []
+  _wooshSource: {fileID: 0}
+  _reelSource: {fileID: 0}
+  _wheelVelocity: 1
   _startPoint: {fileID: 0}
   _fishingLine: {fileID: 5169025628442503717}
   _lineResolution: 6
