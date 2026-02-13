@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1184079598460210769}
   - component: {fileID: 3214636150968149723}
   - component: {fileID: 4723807741139925242}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1553876396733146345}
   - component: {fileID: 4664755294990998851}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 2560224705786384071}
   - component: {fileID: 8416314718033778662}
   - component: {fileID: 1913448250574070791}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FishHook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 2891810530731868589}
   - component: {fileID: 2531768520167308999}
   - component: {fileID: 334312835713794640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bubbles
       objectReference: {fileID: 0}
+    - target: {fileID: 5058266724168858511, guid: bc7fc6ccbbbb4e344a475adab7c09115, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -693,6 +697,14 @@ PrefabInstance:
     - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_Name
       value: Highlight Interaction Affordance
+      objectReference: {fileID: 0}
+    - target: {fileID: 3774509235512974894, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896237787779704601, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5258331117553129771, guid: 6b12f432fa58c224baf0d659706362be, type: 3}
       propertyPath: m_RootOrder
