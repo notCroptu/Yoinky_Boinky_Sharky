@@ -862,31 +862,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8794653777106302590, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
   m_PrefabInstance: {fileID: 8676703070292704504}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &481762847 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 7446653827316584411, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-  m_PrefabInstance: {fileID: 8676703070292704504}
-  m_PrefabAsset: {fileID: 0}
---- !u!136 &481762849 stripped
-CapsuleCollider:
-  m_CorrespondingSourceObject: {fileID: 6527811485425864902, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-  m_PrefabInstance: {fileID: 8676703070292704504}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &481762850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481762833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63aed65e2cc3d4f42a0b0c3ba36feab2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CalculateDamping
-  _rigidbody:
-  - {fileID: 481762847}
-  _col: {fileID: 481762849}
 --- !u!1 &574907362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1113,7 +1088,7 @@ Transform:
   m_GameObject: {fileID: 731587590}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.167}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3249,82 +3224,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1291693061}
     m_Modifications:
-    - target: {fileID: 346818983884051030, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1615912800933724561, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 1980409284844229465, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: m_Name
       value: FishingRod
-      objectReference: {fileID: 0}
-    - target: {fileID: 1980409284844229465, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2214229089057840964, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: _hook
       value: 
       objectReference: {fileID: 731587591}
-    - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: _angleThreshold
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: _throwingVelocity
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2699902501029794720, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: _triggeringDistance
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3194853735614490585, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3456542113575676734, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4458341009294343410, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6142549905307464284, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6791689693266447780, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7061589604468783270, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446653827316584411, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_LinearDamping
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7446653827316584411, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_AngularDamping
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7549777788450558609, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7840043546336755571, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 8794653777106302590, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3365,21 +3272,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9066413886853412202, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 9203662682308814495, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1980409284844229465, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 481762850}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e44c2ae67e48404ca70c6806472cd1f, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
