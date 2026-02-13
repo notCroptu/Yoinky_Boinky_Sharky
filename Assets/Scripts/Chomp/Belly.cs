@@ -18,10 +18,9 @@ public class Belly : MonoBehaviour
 
     [SerializeField] private GameObject _dieCanvas;
     [SerializeField] private Text _dieText;
-    [SerializeField] private string _dieStarve;
-    [SerializeField] private string _dieExplode;
+    private string _dieStarve = "You fucking starved !! LMAO! L";
+    private string _dieExplode = "WOW! You phat fuck!!\nYou fucking exploded!";
 
-    [SerializeField] private float _cameraInfluence = 0.8f;
     [SerializeField] private Transform _camera;
     [SerializeField] private Transform _forward;
 
@@ -39,6 +38,9 @@ public class Belly : MonoBehaviour
     private float timer;
     private void OnEnable()
     {
+        ParticleSystem.EmissionModule emission = _blood.emission;
+        emission.enabled = false;
+
         _dieCanvas.SetActive(false);
         _bellyScale.localScale = _minScale;
         _current = 0f;
@@ -64,19 +66,33 @@ public class Belly : MonoBehaviour
 
     public void DIE(bool explode)
     {
+        if (Dead) return;
+        StartCoroutine(DieCoroutine(explode));
+    }
+
+    private IEnumerator DieCoroutine(bool explode)
+    {
         _dieCanvas.SetActive(true);
         _dieCanvas.SetActive(true);
         _dieText.text = explode ? _dieExplode : _dieStarve;
 
         if (explode)
         {
-            Vector3 newScale = _maxScale * 3f;
-            Vector3 newPos = _bellyScale.position + Vector3.up;
-            DOTween.To(() => _bellyScale.localScale, x => _bellyScale.localScale = x, newScale, 0.4f).SetEase(Ease.OutElastic);
-            DOTween.To(() => _bellyScale.position, x => _bellyScale.position = x, newPos, 0.4f).SetEase(Ease.OutElastic);
-            _blood.Emit(64);
-
             Sound.PlaySound(_source, _explodeSounds);
+            
+            Vector3 newScale = _maxScale * 1.4f;
+            DOTween.To(() => _bellyScale.localScale, x => _bellyScale.localScale = x, newScale, 1.6f).SetEase(Ease.InOutElastic);
+
+            yield return new WaitForSeconds(1.657f);
+
+            ParticleSystem.EmissionModule emission = _blood.emission;
+            emission.enabled = true;
+            _blood.Play();
+            
+            newScale = _maxScale * 3f;
+            Vector3 newPos = _bellyScale.position + Vector3.up;
+            DOTween.To(() => _bellyScale.localScale, x => _bellyScale.localScale = x, newScale, 0.5f).SetEase(Ease.InOutElastic);
+            DOTween.To(() => _bellyScale.position, x => _bellyScale.position = x, newPos, 1f);
         }
         else
             Sound.PlaySound(_source, _starveSounds);
@@ -116,27 +132,17 @@ public class Belly : MonoBehaviour
                 _starving = StartCoroutine(Starve());
             _current = Mathf.Clamp01(_current);
             _bellyScale.localScale = Vector3.Lerp(_minScale, _maxScale, _current);
-            Debug.Log("BELLYYYYY: " + _current);
         }
         else
             timer -= Time.timeScale;
 
         if (_camera == null || _forward == null) return;
 
-        Vector3 cameraDir = _camera.position - _bellyRotation.position;
+        Vector3 cameraDir = _camera.forward;
         cameraDir.y = 0;
         cameraDir.Normalize();
 
-        Vector3 forwardDir = _forward.forward;
-        forwardDir.y = 0;
-        forwardDir.Normalize();
-
-        Vector3 blendedDir = Vector3.Slerp(forwardDir, cameraDir, _cameraInfluence).normalized;
-
-        if (blendedDir.sqrMagnitude > 0.001f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(blendedDir, Vector3.up);
-            _bellyRotation.rotation = targetRotation;
-        }
+        Quaternion targetRotation = Quaternion.LookRotation(cameraDir, Vector3.up);
+        _bellyRotation.rotation = targetRotation;
     }
 }
