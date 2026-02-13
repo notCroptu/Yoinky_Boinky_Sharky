@@ -18,8 +18,8 @@ public class Belly : MonoBehaviour
 
     [SerializeField] private GameObject _dieCanvas;
     [SerializeField] private Text _dieText;
-    private string _dieStarve = "You fucking starved !! LMAO! L";
-    private string _dieExplode = "WOW! You phat fuck!!\nYou fucking exploded!";
+    private string _dieStarve = "You phucking starved !! LMAO! L";
+    private string _dieExplode = "WOW! You phat fuck!!\nYou phucking exploded!";
 
     [SerializeField] private Transform _camera;
     [SerializeField] private Transform _forward;
@@ -113,9 +113,9 @@ public class Belly : MonoBehaviour
                 yield break;
             }
 
-            if (Random.value > Mathf.Lerp(0.6f, 0.95f, Mathf.InverseLerp(0f, 40f, time)))
+            if (!_source.isPlaying && Random.value > Mathf.Lerp(0.98f, 1f, Mathf.InverseLerp(0f, 40f, time)))
             {
-                Sound.PlaySound(_source, _starveSounds);
+                Sound.PlaySound(_source, _bellySounds);
             }
 
             Debug.Log("Starving! " + time);

@@ -34,6 +34,7 @@ public class Fisherman : MonoBehaviour
     [SerializeField] private Transform _fisherPool;
     [SerializeField] private Transform _fisherPoolOn;
     [SerializeField] private GameObject _fishingCane;
+    [SerializeField] private Rigidbody _fishingRigidbody;
     [SerializeField][Min(1f)] private float _pullingForce;
     [SerializeField][Min(0f)] private float _spawnRadius = 5f;
 
@@ -248,10 +249,9 @@ public class Fisherman : MonoBehaviour
     {
         Debug.Log("Reverse Fishing!");
         Sound.PlaySound(_fallSource, _fallsounds);
-        Vector3 newFishingPos = _startPoint.localPosition; // *_spawnRadius;
 
         Transform fisher = _fisherPool.GetChild(0);
-        fisher.transform.localPosition = newFishingPos;
+        fisher.transform.position = _startPoint.position;
         fisher.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
         Rigidbody rb = fisher.GetComponentInChildren<Rigidbody>();
         fisher.SetParent(_fisherPoolOn);
@@ -262,17 +262,16 @@ public class Fisherman : MonoBehaviour
             rb.AddTorque(direction * _pullingForce * 4f, ForceMode.Impulse);
         }
 
-        if (_fishingCane.activeInHierarchy == false)
+        if ( Random.value > 0.66f && !_fishingCane.activeSelf)
         {
-            _fishingCane.transform.localPosition = newFishingPos;
+            _fishingCane.SetActive(true);
+            _fishingCane.transform.position = _startPoint.position;
             _fishingCane.transform.Rotate(new Vector3(Random.Range(-90f, 90f), Random.Range(-90f, 90f), Random.Range(-90f, 90f)));
-            Rigidbody rbC = _fishingCane.GetComponentInChildren<Rigidbody>();
-            _fishingCane.transform.SetParent(null);
 
-            if (rbC != null)
+            if (_fishingRigidbody)
             {
-                rbC.AddForce(direction * _pullingForce, ForceMode.Impulse);
-                rbC.AddTorque(direction * _pullingForce * 2f, ForceMode.Impulse);
+                _fishingRigidbody.AddForce(direction * _pullingForce/2f, ForceMode.Impulse);
+                _fishingRigidbody.AddTorque(direction * _pullingForce * 2f, ForceMode.Impulse);
             }
         }
 
