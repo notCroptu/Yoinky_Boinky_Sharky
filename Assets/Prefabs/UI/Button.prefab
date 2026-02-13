@@ -170,6 +170,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 42b3c04b8c0484346a9278dc73399487, type: 3}
     - target: {fileID: 4462709362712937534, guid: e5db301629853dd4a99835fa70099d79, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4462709362712937534, guid: e5db301629853dd4a99835fa70099d79, type: 3}
       propertyPath: m_PreserveAspect
       value: 1
       objectReference: {fileID: 0}
@@ -306,10 +310,31 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 7228554695504750986, guid: e5db301629853dd4a99835fa70099d79, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 909881759767330623, guid: e5db301629853dd4a99835fa70099d79, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4403125904111875615}
   m_SourcePrefab: {fileID: 100100000, guid: e5db301629853dd4a99835fa70099d79, type: 3}
 --- !u!224 &3308170122880742814 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5289182684458692541, guid: e5db301629853dd4a99835fa70099d79, type: 3}
   m_PrefabInstance: {fileID: 7245738281522125347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7507082970887005468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 909881759767330623, guid: e5db301629853dd4a99835fa70099d79, type: 3}
+  m_PrefabInstance: {fileID: 7245738281522125347}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4403125904111875615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7507082970887005468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14177ac9a747f1499c680837c182cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Noottu.MenuSystem.Runtime::UIRaycastAlphaThreshold
+  _alphaThreshold: 0.05

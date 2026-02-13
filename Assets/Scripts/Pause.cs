@@ -17,6 +17,7 @@ public class Pause : MonoBehaviour
             return;
         }
 
+        _pause.SetActive(false);
         button.EnableDirectActionIfModeUsed();
     }
 
