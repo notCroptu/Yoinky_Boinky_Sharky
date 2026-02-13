@@ -12,7 +12,7 @@ public class Belly : MonoBehaviour
     [SerializeField] private Vector3 _minScale = new(0.5f, 0.3f, 0.5f);
     [SerializeField] private Vector3 _maxScale = new(1.5f, 0.9f, 1.5f);
     [SerializeField] private float _scalingAmount = 0.2f;
-    private float _current = 0f;
+    private float _current = 0.4f;
     [SerializeField] private float _diminishingVel = 0.2f;
 
 
@@ -43,7 +43,6 @@ public class Belly : MonoBehaviour
 
         _dieCanvas.SetActive(false);
         _bellyScale.localScale = _minScale;
-        _current = 0f;
     }
 
     [Button]
@@ -67,6 +66,7 @@ public class Belly : MonoBehaviour
     public void DIE(bool explode)
     {
         if (Dead) return;
+        Dead = true;
         StartCoroutine(DieCoroutine(explode));
     }
 
@@ -90,9 +90,11 @@ public class Belly : MonoBehaviour
             _blood.Play();
             
             newScale = _maxScale * 3f;
-            Vector3 newPos = _bellyScale.position + Vector3.up;
+            Vector3 newPos = _bellyScale.position + Vector3.up*2f;
             DOTween.To(() => _bellyScale.localScale, x => _bellyScale.localScale = x, newScale, 0.5f).SetEase(Ease.InOutElastic);
             DOTween.To(() => _bellyScale.position, x => _bellyScale.position = x, newPos, 1f);
+
+            yield return new WaitForSeconds(1f);
         }
         else
             Sound.PlaySound(_source, _starveSounds);
@@ -106,18 +108,25 @@ public class Belly : MonoBehaviour
         while (time > 0f)
         {
             if (_current > 0.01f)
+            {
+                Debug.Log("Starving break;");
+                _starving = null;
                 yield break;
+            }
 
             if (Random.value > Mathf.Lerp(0.6f, 0.95f, Mathf.InverseLerp(0f, 30f, time)))
             {
                 Sound.PlaySound(_source, _starveSounds);
             }
 
+            Debug.Log("Starving! " + time);
+
             time -= Time.timeScale;
             yield return null;
         }
 
         DIE(false);
+        _starving = null;
     }
 
     private Coroutine _starving;
@@ -128,8 +137,12 @@ public class Belly : MonoBehaviour
         if (timer < 0f)
         {
             _current -= _diminishingVel / 1000f * Time.timeScale;
-            if (_starving != null)
+
+            if (_starving == null && _current < 0f)
+            {
                 _starving = StartCoroutine(Starve());
+            }
+            
             _current = Mathf.Clamp01(_current);
             _bellyScale.localScale = Vector3.Lerp(_minScale, _maxScale, _current);
         }

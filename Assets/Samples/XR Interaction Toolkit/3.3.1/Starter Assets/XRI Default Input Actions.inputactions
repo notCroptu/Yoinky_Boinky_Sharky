@@ -883,30 +883,8 @@
                 },
                 {
                     "name": "",
-                    "id": "f15bb9a1-6856-4ab8-a3a1-5ca930f87fa7",
+                    "id": "50afca7e-5d05-4363-887c-a11186c6f65d",
                     "path": "<XRController>{LeftHand}/{PrimaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8afdc442-f2c9-43d2-bd6f-b1fc1d19e31b",
-                    "path": "<XRController>{LeftHand}/{primaryButton}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d5dcb532-009f-45f8-955b-145ec1531d11",
-                    "path": "*/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

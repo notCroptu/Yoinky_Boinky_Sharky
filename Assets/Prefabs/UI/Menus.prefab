@@ -444,7 +444,7 @@ PrefabInstance:
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7317309975230209892}
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -472,8 +472,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3308170122880742815, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7317309975230209892}
   m_SourcePrefab: {fileID: 100100000, guid: fa22986cc7d239147af765581771fb88, type: 3}
+--- !u!1 &2242598540474861773 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3308170122880742815, guid: fa22986cc7d239147af765581771fb88, type: 3}
+  m_PrefabInstance: {fileID: 3672602270996741458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7317309975230209892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242598540474861773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566685187edaab448b0ccdfa204b1b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Noottu.MenuSystem.Runtime::MainMenu
+  _menuCanvas: {fileID: 0}
+  _runtimePlaneDistance: 1
+  _overrideMode: 1
+  _gameScene: Menus
 --- !u!224 &3740627785965486119 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 80736493364084085, guid: fa22986cc7d239147af765581771fb88, type: 3}
@@ -578,7 +602,7 @@ PrefabInstance:
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7317309975230209892}
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -712,6 +736,34 @@ PrefabInstance:
     - target: {fileID: 80736493364084085, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2198990793159516344}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadSceneHelper, Noottu.MenuSystem.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3365290376337767759, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_Name
@@ -865,6 +917,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3072911169162965751}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -985,6 +1041,34 @@ PrefabInstance:
     - target: {fileID: 80736493364084085, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8570431437230337927}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: LoadSceneHelper, Noottu.MenuSystem.Runtime
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308170122880742813, guid: fa22986cc7d239147af765581771fb88, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3365290376337767759, guid: fa22986cc7d239147af765581771fb88, type: 3}
       propertyPath: m_Name

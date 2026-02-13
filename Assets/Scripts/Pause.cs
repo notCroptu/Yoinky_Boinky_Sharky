@@ -26,6 +26,7 @@ public class Pause : MonoBehaviour
     void OnDisable()
     {
         button.DisableDirectActionIfModeUsed();
+        button.inputAction.Disable();
     }
 
     void Update()

@@ -49,8 +49,8 @@ Material:
     - _WaveAmplitude: 3
     - _WaveSpeed: 0.4
     m_Colors:
-    - _RipplesColor: {r: 0.36037737, g: 1, b: 0.84594476, a: 1}
-    - _WaterColor: {r: 0, g: 0.6786821, b: 1, a: 1}
+    - _RipplesColor: {r: 0.59825563, g: 1, b: 0.90387714, a: 1}
+    - _WaterColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &281820616413201462
