@@ -329,6 +329,15 @@
             "id": "5fe596f9-1b7b-49b7-80a7-3b5195caf74d",
             "actions": [
                 {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "281c8f70-0ba4-48a6-a32d-5dda4f20f12b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "Position",
                     "type": "Value",
                     "id": "83a7af0b-87e3-42c3-a909-95fbf8091e4f",
@@ -450,15 +459,6 @@
                     "type": "Value",
                     "id": "c01850c4-700b-4ae6-a187-a894afef5bbd",
                     "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "281c8f70-0ba4-48a6-a32d-5dda4f20f12b",
-                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -883,9 +883,9 @@
                 },
                 {
                     "name": "",
-                    "id": "50afca7e-5d05-4363-887c-a11186c6f65d",
-                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
-                    "interactions": "",
+                    "id": "7dc64b6e-70f5-437a-a24e-6884c166b862",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
@@ -894,8 +894,19 @@
                 },
                 {
                     "name": "",
-                    "id": "7dc64b6e-70f5-437a-a24e-6884c166b862",
-                    "path": "<Keyboard>/escape",
+                    "id": "39fd9581-3bf7-4c06-847a-c77f598f45e6",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2242407e-5cef-4fee-88ef-017cbf5a2e95",
+                    "path": "<TrackedDevice>/{PrimaryButton}",
                     "interactions": "Press",
                     "processors": "",
                     "groups": "",
