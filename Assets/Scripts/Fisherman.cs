@@ -84,6 +84,7 @@ public class Fisherman : MonoBehaviour
 
 
     private Coroutine _cor;
+    [Button]
     public void PickUp()
     {
         if (_cor != null)
@@ -210,15 +211,16 @@ public class Fisherman : MonoBehaviour
         }
     }
 
+    [Button]
     public void Drop()
     {
         if (_cor != null)
             StopCoroutine(_cor);
-        
+
         _hookAnim.StartPlayback();
 
         DOTween.To(() => _midPointBlend, x => _midPointBlend = x, 1f, 2f).SetEase(Ease.OutSine);
-        _hookTransform.rotation = _originalHookRot;
+        _hookTransform.MoveRotation(_originalHookRot);
     }
     private void InitNewFisher()
     {
@@ -282,7 +284,6 @@ public class Fisherman : MonoBehaviour
         _hookTransform.isKinematic = true;
         _hookTransform.transform.DOMove(newPos, _time);
 
-        InitNewFisher(); // add new to pool to fetch later
         _collider.enabled = false;
 
         StartCoroutine(TryChooseNewLocation());
@@ -291,7 +292,7 @@ public class Fisherman : MonoBehaviour
     private IEnumerator TryChooseNewLocation()
     {
         YieldInstruction wfs = new WaitForSeconds(_waitTime);
-        WaitUntil wu = new WaitUntil(() => (_fisherPool.childCount + _fisherPoolOn.childCount) <= _initializeFisherAtATime);
+        WaitUntil wu = new WaitUntil(TrySpawn);
 
         do
         {
@@ -300,6 +301,14 @@ public class Fisherman : MonoBehaviour
         } while (Random.Range(0f, 1f) > _possibility);
 
         ChooseNewLocation();
+    }
+
+    private bool TrySpawn()
+    {
+        if (_initializeFisherAtATime < (_fisherPool.childCount + _fisherPoolOn.childCount))
+            InitNewFisher(); // add new to pool to fetch later
+        
+        return _fisherPool.childCount > 0;
     }
 
     private void LateUpdate()
@@ -383,6 +392,7 @@ public class Fisherman : MonoBehaviour
         _hookTransform.transform.localPosition = _startPoint.localPosition;
 
         _hookTransform.isKinematic = false;
+        _hookTransform.MoveRotation(_originalHookRot);
 
         Vector3 newVelocity = new Vector3((Random.value * 2 - 1f) * _radius, 0f, (Random.value * 2 - 1f) * _radius);
         RBGoToY(_hookTargetY, _hookTransform, newVelocity);

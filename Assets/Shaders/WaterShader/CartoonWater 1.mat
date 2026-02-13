@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CartoonWater
+  m_Name: CartoonWater 1
   m_Shader: {fileID: -6465566751694194690, guid: 5fe85267cae8fb4498f2ea8aa19e0540, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,13 +44,13 @@ Material:
     - _RippleDensity: 55
     - _RippleSlimness: 5
     - _RippleSpeed: 2
-    - _WaterTransparency: 0.75
+    - _WaterTransparency: 1
     - _Water_Distortion: 1
     - _WaveAmplitude: 3
     - _WaveSpeed: 0.4
     m_Colors:
-    - _RipplesColor: {r: 0.36037737, g: 1, b: 0.84594476, a: 1}
-    - _WaterColor: {r: 0, g: 0.6786821, b: 1, a: 1}
+    - _RipplesColor: {r: 0.034819007, g: 0.4517622, b: 0.3520028, a: 1}
+    - _WaterColor: {r: 0, g: 0, b: 0.37486643, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &281820616413201462
